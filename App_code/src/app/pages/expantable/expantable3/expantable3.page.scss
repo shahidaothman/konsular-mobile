@@ -1,0 +1,22 @@
+
+div[content] {
+    min-height: 200px;
+    background: var(--ion-color-light);
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+}
+
+ion-item {
+    border: 1px solid var(--ion-color-light);
+    --inner-border-width: 0px;
+}
+
+
+.fiveMargin {
+    margin-top: 16px;
+}
+
+.content {
+    color: var(--ion-color-primary);
+}

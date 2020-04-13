@@ -1,0 +1,43 @@
+<app-header title="Input"></app-header>
+
+<ion-content>
+
+    <ion-list>
+
+        <ion-list-header>
+            <ion-label>First name: {{ fname || 'There is no name'}}</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input type="text" [(ngModel)]="fname"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+
+    <form #forms="ngForm" (ngSubmit)="onSubmitTemplate()">
+
+        <ion-list>
+
+
+            <ion-list-header>
+                <ion-label>Form Template: Valid {{ forms.valid}}</ion-label>
+            </ion-list-header>
+            <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input name="email" type="email"
+                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" [(ngModel)]="user.email"
+                    required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input name="password" type="password" [(ngModel)]="user.password" required></ion-input>
+            </ion-item>
+        </ion-list>
+
+        <ion-button expand="full" type="submit" [disabled]="forms.invalid">Submit</ion-button>
+
+    </form>
+
+</ion-content>

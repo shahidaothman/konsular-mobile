@@ -1,0 +1,29 @@
+  ion-card {
+    position: relative;
+    height: 150px;
+    width: 100% !important;
+  }
+
+   #main_img {
+      background-size: cover;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
+    }
+
+  [gallery-title] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 2px;
+    bottom: 0;
+    min-height: 45px;
+    border-bottom: 1px solid transparent !important;
+    overflow: hidden;
+    background-image: linear-gradient(-230deg, rgba(74, 57, 57, 0.4), rgba(26, 5, 5, 1.2));
+    [item-title],[item-subtitle] {
+        color: white !important;
+        font-weight: bold !important;
+        text-align: center;
+    }
+  }

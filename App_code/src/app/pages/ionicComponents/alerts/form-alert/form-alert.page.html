@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Form Alerts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label text-center>Resources</ion-label>
+    </ion-item>
+    <div class="box" id="g1" (click)="presentAlertPrompt()">
+      <p>Prompt Alert</p>
+    </div>
+    <div class="box" id="g2" (click)="presentAlertRadio()">
+      <p>Radio Alert</p>
+    </div>
+    <div class="box" id="g3" (click)="presentAlertCheckbox()">
+      <p>Checkbox Alert</p>
+    </div>
+  </ion-list>
+</ion-content>

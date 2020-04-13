@@ -1,0 +1,121 @@
+ion-card{
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+ion-select, bsc-select{
+  margin-right: 30px;
+  min-width: -webkit-fill-available;
+  background-color: transparent;
+}
+ion-button{
+  width: -webkit-fill-available; 
+  --border-radius: 15px !important;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+ion-col{
+    place-self: center;
+    padding: 0px;
+}
+
+.item-native {
+    background-color: crimson;
+}
+
+
+.fiveMargin {
+  margin-top: 16px;
+}
+
+.content {
+  color: var(--ion-color-primary);
+}
+
+.img_selected{
+  width: 100%;
+  height: 200px;
+}
+
+.footerContent {
+  margin-top: 10px;
+  .infoFooter {
+      color: gray;
+      font-size: 10px;
+  }
+  .footerImage {
+      height: 25px;
+  }
+  .footerImageW {
+      height: 25px;
+      margin-left: 82%;
+  }
+}
+
+.sendBtn {
+  border-radius: 10px;
+}
+
+.nextbtn {
+  width: -webkit-fill-available;
+}
+
+.item-inner {
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: var(--inner-padding-start);
+  padding-inline-start: var(--inner-padding-start);
+  -webkit-padding-end: calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));
+  padding-inline-end: calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));
+  border-radius: 30px !important;
+  padding: 6px;
+  border: solid;
+  border-color: #f0f8ffa1;
+  background-color: #dadada7a;
+  width: -webkit-fill-available;
+}
+
+.item-expand {
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: var(--inner-padding-start);
+  padding-inline-start: var(--inner-padding-start);
+  -webkit-padding-end: calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));
+  padding-inline-end: calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));
+  border-radius: 30px !important;
+  padding: 6px;
+  background-color: #e3ecf8;
+  --highlight-color-focused : transparent !important;  
+  width: -webkit-fill-available;
+  
+}
+
+.expand-label{
+  margin-left: 30px;
+}
+
+.userinput{
+  --ion-background-color:rgba(255, 255, 255, 0.15);
+      font-size: 10pt;
+      margin-left: 30px;
+      padding-left: 0px;
+      --highlight-color-focused : transparent !important;    
+  }
+
+.icon{
+  font-size: larger;
+}
+
+.ion-expand
+{
+  padding: 10px;
+}
+
+.photo
+{
+  text-align: initial;
+  margin-left: 30px;
+}

@@ -1,0 +1,12 @@
+<div class="bsc-wrapper">
+  <span (click)="click()" *ngIf="currentState !== states.Top && handle" [fivCenter]="{vertical: false, horizontal: true}" class="handle"></span>
+  <div [ngClass]="{'margin': handle}" class="content">
+    <ng-content>
+  
+    </ng-content>
+  </div>
+</div>
+
+
+
+

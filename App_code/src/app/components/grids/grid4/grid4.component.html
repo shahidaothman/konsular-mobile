@@ -1,0 +1,9 @@
+<ion-grid no-margin no-padding>
+  <ion-row no-margin no-padding>
+    <ion-col size="4" *ngFor="let item of list;let i= index">
+      <ion-card no-margin background-size id='main_img' [style.backgroundImage]="'url('+item.imgs+')'">
+        <p class="username">{{item.username}}</p>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

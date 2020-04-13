@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Layout 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="lists">
+    <div *ngFor="let item of lists;let i = index">
+      <ion-item lines="none" (click)="lists[i].show = !lists[i].show">
+        <ion-icon color="secondary" slot="end" name="add"></ion-icon>
+        <ion-label class="main_lbl" text-center>
+          {{item.name}}
+        </ion-label>
+      </ion-item>
+      <div *ngIf="item.show" class="sub_list">
+        <ion-item *ngFor="let sub of item.subList" lines="none">
+          <ion-label item-title text-wrap>{{sub.name}}</ion-label>
+          <ion-checkbox (ionChange)="onChange(sub)">
+          </ion-checkbox>
+        </ion-item>
+      </div>
+    </div>
+  </div>
+</ion-content>

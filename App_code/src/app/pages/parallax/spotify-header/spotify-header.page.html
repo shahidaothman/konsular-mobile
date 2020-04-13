@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="animation" id="title" text-center>Parallax</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event) ">
+  <div id="profile-background" [ngStyle]="{'background-image': 'url(' + imageUrl +')'}"></div>
+  <div id="content">
+    <div id="profile-info">
+      <img id="profile-image" src="assets/avatars/1.jpg">
+      <h3 id="profile-name">RCAP DESIGNS</h3>
+      <span id="profile-description">Ionic Expert</span>
+    </div>
+
+    <h2 text-center>Lorem:</h2>
+    <ion-list>
+      <ion-item *ngFor="let post of posts">
+        <img class="post-profile-image" src="assets/avatars/1.jpg">
+        {{post.text}}
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

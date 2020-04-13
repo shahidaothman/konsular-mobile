@@ -1,0 +1,24 @@
+<div>
+  <ion-slides class="slider_item" mode="md" [options]="slideOpts" #mysliders>
+    <ion-slide class="slide_item" *ngFor="let item of info;let i = index">
+      <div *ngIf="item.thumbnail" [style.backgroundImage]="'url(' + item.thumbnail + ')'"
+        class="div_item_slider back_img"></div>
+      <div *ngIf="!item.thumbnail" [style.backgroundImage]="'url(assets/images/photo_9.jpeg)'"
+        class="div_item_slider back_img">
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="sub_imags">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" *ngFor="let g of info;let i = index">
+          <div [style.backgroundImage]="'url(' + g.thumbnail + ')'" (click)="viewImage(g, '', '')"
+            class="back_img div_img_small">
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</div>

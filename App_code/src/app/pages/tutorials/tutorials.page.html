@@ -1,0 +1,50 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color='dark' (click)="startApp()" [hidden]="!showSkip">Skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="bg">
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="false" [options]="slideOpts">
+    <ion-slide>
+      <img src="assets/intro/1.png" class="slide-image" />
+      <h2 class="slide-title">
+        Welcome
+      </h2>
+      <p>
+        The
+        <b>Ionic4 Starter App</b> is a practical preview of the ionic framework version 4.+ in action, and a
+        demonstration of
+        proper code
+        use.
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/intro/2.png" class="slide-image" />
+      <h2 class="slide-title">What is Ionic4 Starter App</h2>
+      <p>
+        <b>All the code you need.</b> Templates, Parallax, Timelines, Login, Firebase</p>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/intro/4.png" class="slide-image" />
+      <h2 class="gslide-title">Everything you need in one place.</h2>
+      <p>
+        <b>Ionic4 Starter App</b> is a powerful set of services and features built on top of Ionic Framework that brings
+        a
+        totally new
+        level of app development agility to mobile dev teams. Ready To use Components</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/intro/5.png" class="slide-image" />
+      <h2 class="slide-title">Ready to Play?</h2>
+      <ion-button fill="clear" color="dark" (click)="startApp()">
+        Continue
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

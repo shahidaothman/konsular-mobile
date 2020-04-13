@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>
+      Profile Page
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name="person-add">
+      </ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+  <ion-row padding>
+    <!-- Avatar -->
+    <ion-col size="3">
+      <img src="https://avatars3.githubusercontent.com/u/46274372?s=400&u=dfef65d2c39605443673be8bf556127b9fc14ea1&v=4"
+        class="avatar" alt="">
+    </ion-col>
+    <!-- Information about user -->
+    <ion-col size="3" text-center>
+      <h6>21</h6>
+      <p no-padding no-margin>posts</p>
+    </ion-col>
+    <ion-col size="3" text-center>
+      <h6>114</h6>
+      <p no-paddin no-margin>followers</p>
+    </ion-col>
+    <ion-col size="3" text-center>
+      <h6>119</h6>
+      <p no-paddin no-margin>following</p>
+    </ion-col>
+  </ion-row>
+
+  <!-- Edit/follow button -->
+  <ion-row no-padding no-margin>
+    <ion-col no-padding no-margin size="4"></ion-col>
+    <ion-col no-padding no-margin text-center size="8">
+      <button class="edit-button">Edit your profile</button>
+    </ion-col>
+    <!-- <ion-col size="3"></ion-col> -->
+  </ion-row>
+
+  <!-- Profile info -->
+  <div padding>
+    <p no-margin no-padding><b>RCAP Designs</b></p>
+    <p no-padding no-margin class="info">Software developer, Ionic Expert
+    </p>
+    <p no-padding no-margin class="info"><a href="https://github.com/rcapscode">github.com/rcapscode</a></p>
+  </div>
+
+
+
+  <!-- Segments -->
+
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="grid" checked>
+      <ion-icon name="grid"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="list">
+      <ion-icon name="list"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="tagged">
+      <ion-icon name="contact"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="all_segments">
+    <div *ngIf="segments == 'grid'" class="grids">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let post of posts;let i = index" no-maring no-padding>
+            <ion-card class="card" no-maring no-padding>
+              <ion-icon name="videocam" *ngIf="post.video == 'true'" class="badge" color="light"></ion-icon>
+              <img [src]="post.img" [alt]="post.name">
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngIf="segments == 'list'">
+      <div class="postCards">
+        <ion-card *ngFor="let post of userPost" (click)="showBasicAlert(post)">
+          <ion-card-header>
+            <ion-item lines="none">
+              <ion-avatar slot="start">
+                <img [src]="post.profile">
+              </ion-avatar>
+              <ion-label>{{post.name}}</ion-label>
+            </ion-item>
+          </ion-card-header>
+          <ion-img [src]="post.img"></ion-img>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <p class="descriptions">{{post.descriptions}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+          <ion-row>
+            <ion-buttons>
+              <ion-col>
+                <ion-button fill="clear" expand="full" [color]="heartColor">
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <ion-note style="margin-left: 5px"> 10 </ion-note>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button icon-left fill="clear" expand="full" color="dark">
+                  <ion-icon name="chatboxes"></ion-icon>
+                  <ion-note style="margin-left: 5px"> 1 </ion-note>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button icon-left fill="clear" expand="full" color="dark">
+                  <ion-icon name="share"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-buttons>
+          </ion-row>
+        </ion-card>
+      </div>
+    </div>
+    <div *ngIf="segments == 'tagged'" class="grids">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let post of posts;let i = index" no-maring no-padding>
+            <ion-card class="card" no-maring no-padding>
+              <ion-icon name="videocam" *ngIf="post.video == 'true'" class="badge" color="light"></ion-icon>
+              <img [src]="post.img" [alt]="post.name">
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </div>
+</ion-content>

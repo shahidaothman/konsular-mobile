@@ -1,0 +1,27 @@
+
+    .backButton{
+        margin-top: 10px;
+        background: transparent
+    }
+    ion-content {
+        // --background: linear-gradient(316deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+        
+        --background: white;
+        // --background: -moz-linear-gradient(225deg, rgba(27,43,88,1) 0%, rgba(45,122,159,1) 25%, rgba(63,163,215,1) 62%, rgba(98,201,255,1) 82%, rgba(149,218,255,1) 100%); 
+        // --background: -webkit-linear-gradient(225deg, rgba(27,43,88,1) 0%, rgba(45,122,159,1) 25%, rgba(63,163,215,1) 62%, rgba(98,201,255,1) 82%, rgba(149,218,255,1) 100%); 
+        // --background: linear-gradient(225deg, rgba(27,43,88,1) 0%, rgba(45,122,159,1) 25%, rgba(63,163,215,1) 62%, rgba(98,201,255,1) 82%, rgba(149,218,255,1) 100%);
+        background-repeat: no-repeat;  
+        background-size: cover; 
+    }
+
+
+    .nextbtn {
+        width: -webkit-fill-available;
+    }
+
+    ion-button{
+        width: -webkit-fill-available; 
+        --border-radius: 15px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+      }

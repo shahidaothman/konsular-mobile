@@ -1,0 +1,22 @@
+***********************************DONE**********************************
+
+1) Firebase CRUD                        
+2) Firebase Login
+3) Firebase Signup
+4) Firebase Image Upload
+5) Acoordion List
+6) App Info
+7) Charts
+8) Dialog
+9) Expandable                           3
+10 Forms
+11) Image Gallery
+12) Ionic Components
+13) Item Ribbon
+14) Login
+
+
+***********************************REST**********************************
+
+1)Parallax
+

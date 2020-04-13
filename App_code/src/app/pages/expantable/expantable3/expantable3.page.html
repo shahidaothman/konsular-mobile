@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Layout 3
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <ion-label>Basic Example</ion-label>
+  </ion-item-divider>
+
+  <ion-button [disabled]="ex.isOpen" (click)="ex.open()">
+    Open
+  </ion-button>
+  <ion-button [disabled]="!ex.isOpen" (click)="ex.close()">
+    Close
+  </ion-button>
+
+  <fiv-expandable #ex>
+    <fiv-ripple [hover]="true" header (fivClick)="ex.toggle()">
+      <ion-item [lines]="'inset'">
+        <ion-label>Expandable Header</ion-label>
+        <fiv-expandable-indicator></fiv-expandable-indicator>
+      </ion-item>
+    </fiv-ripple>
+    <div content>
+      <span class="content">Expandable Content (height depends on contents size)</span>
+    </div>
+  </fiv-expandable>
+</ion-content>

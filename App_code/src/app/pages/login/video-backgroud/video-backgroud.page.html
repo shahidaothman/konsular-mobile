@@ -1,0 +1,27 @@
+<ion-content force-overscroll="false" has-bouncing='false'>
+
+  <div class="background-video">
+    <video autoplay="autoplay" class="video" loop="" muted="" playsinline="1" poster="assets/videos/background.png"
+      preload="metadata" src="assets/videos/login-bg.mp4"></video>
+  </div>
+  <div class="backButton">
+    <ion-buttons slot="start" color="light">
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
+    </ion-buttons>
+  </div>
+  <div class="div_in">
+    <ion-item lines="none">
+      <ion-input placeholder="Enter Your Email" [(ngModel)]="email" class="i" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input placeholder="Enter Your Password" [(ngModel)]="password" class="i" type="password"></ion-input>
+    </ion-item>
+
+    <div class="div_btn">
+      <ion-button expand="block" (click)="goHome()" class="btn_login">
+        Login
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

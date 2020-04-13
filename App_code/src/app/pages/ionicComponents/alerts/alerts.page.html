@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Alerts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label text-center>Resources</ion-label>
+    </ion-item>
+    <div class="box" id="g1" (click)="basic()">
+      <p>Basic Alert</p>
+    </div>
+    <div class="box" id="g2" (click)="form()">
+      <p>Form Alert</p>
+    </div>
+
+  </ion-list>
+
+</ion-content>

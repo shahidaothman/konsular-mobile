@@ -1,0 +1,61 @@
+.div_content{
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    .lbl_card{
+        font-size: 16px;
+        display: block; 
+        color: gray;
+        margin-top: 15px;
+    }
+    .div_card{
+        margin-top: 20px;
+        width: 100%;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 20px;
+
+        .input_all{
+            font-size: 10px;
+            // padding-bottom: 3px !important;        
+        }
+        .input_date{
+            font-size: 10px;
+            padding: 0px !important;
+            color: black;
+            // padding-bottom: 3px !important;        
+        }
+        /deep/ .native-input.sc-ion-input-md{
+            padding-bottom: 2px !important;
+            padding-left: 0px !important;
+            padding-top: 0px !important
+        }
+        /deep/ .native-input.sc-ion-input-ios{
+            padding-bottom: 2px !important;
+            padding-left: 0px !important;
+            padding-top: 0px !important
+        }
+        .card_number{
+            font-size: 10px;
+            color: gray;  
+        }
+        .img_visa{
+            float: right;
+        }
+    }
+
+    .in_cvc{
+        border: 1px solid gray;
+        margin-top: 15px;
+        border-radius: 5px;
+        width: 135px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .btn_addcard{
+        margin-top: 30px;
+        --box-shadow: none !important;
+    }
+}

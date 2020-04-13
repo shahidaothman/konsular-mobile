@@ -1,0 +1,11 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="6" *ngFor="let item of list;let i= index">
+      <ion-card no-margin background-size id='main_img' [style.backgroundImage]="'url('+item.imgs+')'">
+        <div gallery-title>
+          <p item-title text-wrap>{{item.name}}</p>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Layout 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="exandable_main" no-padding no-margin>
+    <ion-row no-padding no-margin *ngFor="let item of list;let i = index">
+      <ion-col size="6" no-padding no-margin (click)="canOpen(item,i)">
+        <img [src]="item.img" class="main_imgs">
+      </ion-col>
+      <ion-col size="6" no-padding no-margin>
+        <p (click)="canOpen(item,i)" class="user_title">{{item.name}}</p>
+        <p (click)="canOpen(item,i)" class="user_sub_title">{{item.sub_title}}</p>
+        <div class="bottom_btn">
+          <ion-buttons>
+            <ion-col>
+              <ion-button fill="clear" expand="full">
+                <ion-icon name="thumbs-up"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button icon-left fill="clear" expand="full" color="dark">
+                <ion-icon name="chatboxes"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button icon-left fill="clear" expand="full" color="dark">
+                <ion-icon name="share"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-buttons>
+        </div>
+      </ion-col>
+      <div *ngIf="item.open" class="animated fadeInDown">
+        <ion-row class="sub_list " *ngFor="let subItem of item.sub_list;let j = index" (click)="subItemClick(subItem)">
+          <ion-col size="4">
+            <img [src]="subItem.img" class="sub_imgs">
+          </ion-col>
+          <ion-col size="8" no-padding no-margin>
+            <p class="user_sub_title">{{subItem.name}}</p>
+            <p class="user_sub_title">{{subItem.sub_title}}</p>
+            <div class="bottom_btn">
+              <ion-buttons>
+                <ion-col>
+                  <ion-button fill="clear" expand="full">
+                    <ion-icon name="thumbs-up"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button icon-left fill="clear" expand="full" color="dark">
+                    <ion-icon name="chatboxes"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button icon-left fill="clear" expand="full" color="dark">
+                    <ion-icon name="share"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-buttons>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

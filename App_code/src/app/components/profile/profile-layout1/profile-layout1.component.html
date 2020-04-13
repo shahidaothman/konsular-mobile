@@ -1,0 +1,123 @@
+<ion-content>
+  <div class="block">
+    <div class="backButton">
+      <ion-buttons slot="start" color="light">
+        <ion-back-button defaultHref="home" color="light"></ion-back-button>
+      </ion-buttons>
+    </div>
+    <ion-item lines="full">
+      <ion-thumbnail slot="start">
+        <img src="assets/avatars/1.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>RCAP DESIGNS</h2>
+        <p>Ionic Expert</p>
+      </ion-label>
+    </ion-item>
+    <div class="cardContent">
+      <div class="userDetails">
+        <ion-label class="textColor">1000
+        </ion-label>
+        <p class="detailText ">Posts</p>
+      </div>
+      <div class="userDetails">
+        <ion-label class="textColor">30K
+        </ion-label>
+        <p class="detailText">Followers</p>
+      </div>
+      <div class=" userDetails">
+        <ion-label class="textColor">202
+        </ion-label>
+        <p class="detailText">Following</p>
+      </div>
+    </div>
+  </div>
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="post" checked>
+      <ion-label>Posts</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="profile">
+      <ion-label>Profile</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div *ngIf="segments == 'post'">
+    <div class="postCards">
+      <ion-card *ngFor="let post of userPost" (click)="showBasicAlert(post)">
+        <ion-card-header>
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <img [src]="post.profile">
+            </ion-avatar>
+            <ion-label>{{post.name}}</ion-label>
+          </ion-item>
+        </ion-card-header>
+        <ion-img [src]="post.img"></ion-img>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <p class="descriptions">{{post.descriptions}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+        <ion-row>
+          <ion-buttons>
+            <ion-col>
+              <ion-button fill="clear" expand="full" [color]="heartColor">
+                <ion-icon name="thumbs-up"></ion-icon>
+                <ion-note style="margin-left: 5px"> 10 </ion-note>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button icon-left fill="clear" expand="full" color="dark">
+                <ion-icon name="chatboxes"></ion-icon>
+                <ion-note style="margin-left: 5px"> 1 </ion-note>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button icon-left fill="clear" expand="full" color="dark">
+                <ion-icon name="share"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-buttons>
+        </ion-row>
+      </ion-card>
+    </div>
+  </div>
+
+  <div *ngIf="segments == 'profile'">
+    <div>
+      <ion-list>
+        <ion-item>
+          <img src="assets/imgs/profile_mail.png" item-left class="img_list_left" />
+          <ion-label class="lbl_all">contactatracp@gmail.com</ion-label>
+        </ion-item>
+        <ion-item>
+          <img src="assets/imgs/profile_name.png" item-left class="img_list_left" />
+          <ion-label class="lbl_all">RCAP Designs</ion-label>
+        </ion-item>
+        <ion-item>
+          <img src="assets/imgs/profile_gender.png" item-left class="img_list_left" />
+          <ion-label class="lbl_all">Male</ion-label>
+        </ion-item>
+        <ion-item>
+          <img src="assets/imgs/profile_country.png" item-left class="img_list_left" />
+          <ion-label class="lbl_all">California</ion-label>
+        </ion-item>
+        <ion-item>
+          <img src="assets/imgs/profile_country.png" item-left class="img_list_left" />
+          <ion-label class="lbl_all">USA</ion-label>
+        </ion-item>
+        <ion-item>
+          <img src="assets/imgs/profile_call.png" item-left class="img_list_left" />
+          <ion-label class="lbl_all">+1 22 344 444</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <div class="div_btn">
+        <ion-button expand="block" class="btn_login" (click)="update()">UPDATE</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

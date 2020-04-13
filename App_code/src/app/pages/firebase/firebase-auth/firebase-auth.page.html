@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" color="light">
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Firebase Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="header">
+
+  </div>
+
+  <ion-row>
+    <ion-col size="3">
+      <div class="center">
+        <div class="seperator"></div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <p class="title">Login</p>
+    </ion-col>
+    <ion-col size="3">
+      <div class="center">
+        <div class="seperator"></div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <form #loginForm="ngForm" (submit)="onSubmit(loginForm)" class="signup-form">
+    <div class="item">
+      <input class="input" placeholder="Email" type="email" name="email" [(ngModel)]="email" required />
+    </div>
+    <div class="item-white-space"></div>
+    <div class="item">
+      <input class="input" placeholder="Password" type="password" name="password" [(ngModel)]="password" required />
+    </div>
+    <div class="button-white-space"></div>
+    <div class="button-item">
+      <input class="call-to-action" type="submit" value="Login">
+    </div>
+  </form>
+
+  <div class="button-white-space"></div>
+
+
+  <h3 class="title-options" (click)="toSignUp()">Dont have an account? <span class="span">Sign Up</span></h3>
+  <div class="item-white-space"></div>
+</ion-content>

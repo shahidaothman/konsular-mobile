@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nearest Consular</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list lines="none">
+
+    <ion-item lines="none">
+      <div class="item-inner">
+        <ion-select placeholder="Visited Country" class="userinput">
+          <ion-select-option value="f">Female</ion-select-option>
+          <ion-select-option value="m">Male</ion-select-option>
+        </ion-select>
+      </div>
+    </ion-item>
+    <br>
+
+  </ion-list>
+  <ion-row>
+    <ion-col>
+      <ion-button class="btn" color="primary" fill="solid" (click)="nearestconsularmap()">Send Location
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

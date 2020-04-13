@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Signature</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="sign_block">
+    <img *ngIf="signature !=''" [src]="signature" class="sign">
+  </div>
+  <ion-button (click)="open()" expand="block">
+    Create Signature
+  </ion-button>
+</ion-content>

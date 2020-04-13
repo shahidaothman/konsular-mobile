@@ -1,0 +1,107 @@
+<!-- <ion-content padding>
+  <div class="backButton">
+    <ion-buttons slot="start" color="light">
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
+    </ion-buttons>
+  </div>
+  <div class="login-logo">
+    <img src="assets/images/icon.png" alt="Ionic logo">
+  </div>
+
+  <form #loginForm="ngForm" novalidate>
+    <ion-list lines="none">
+      <ion-item lines="none">
+        <ion-label position="stacked" color="primary">Email</ion-label>
+        <ion-input [(ngModel)]="login.email" name="email" type="email" #email="ngModel" spellcheck="false"
+          autocapitalize="off" required>
+        </ion-input>
+
+      </ion-item>
+
+      <ion-text color="light">
+        <p [hidden]="email.valid || submitted == false" class="ion-padding-start">
+          Email is required
+        </p>
+      </ion-text>
+
+      <ion-item lines="none">
+        <ion-label position="stacked" color="primary">Password</ion-label>
+        <ion-input [(ngModel)]="login.password" name="password" [type]="passwordType" #password="ngModel" required>
+        </ion-input>
+        <ion-icon [name]="passwordIcon" slot="end" (click)='hideShowPassword()'></ion-icon>
+      </ion-item>
+
+      <ion-text color="light">
+        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+          Password is required
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button class="btn_class" (click)="onLogin(loginForm)" type="submit" expand="block" (click)="home()">Login
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content> -->
+
+<ion-content padding>
+  <div class="backButton">
+    <ion-buttons slot="start" color="light">
+      <ion-back-button defaultHref="home" color="dark"></ion-back-button>
+    </ion-buttons>
+  </div>
+  <div class="login-logo">
+    <img src="assets/images/logo_white.png" alt="Ionic logo">
+  </div>
+  <div class="ion-text-center">
+    <h1>LOGIN</h1>
+
+  </div>
+  <form #loginForm="ngForm" novalidate>
+    <ion-list lines="none">
+
+      <ion-item lines="none">
+        <div class="item-inner">
+          <ion-input [(ngModel)]="login.email" class="userinput" placeholder="MyKad/Passport No." name="email"
+            type="email" #email="ngModel" spellcheck="false" autocapitalize="off" required>
+          </ion-input>
+        </div>
+      </ion-item>
+
+      <br>
+      <ion-text color="light">
+        <p [hidden]="email.valid || submitted == false" class="ion-padding-start">
+          Email is required
+        </p>
+      </ion-text>
+
+      <ion-item lines="none">
+        <div class="item-inner">
+          <ion-input [(ngModel)]="login.password" class="userinput" placeholder="Password" name="password"
+            [type]="passwordType" #password="ngModel" required>
+          </ion-input>
+        </div>
+      </ion-item>
+
+      <ion-text color="light">
+        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+          Password is required
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onLogin(loginForm)" type="submit" class="btn" expand="block" (click)="home()">LOGIN
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <div class="login-button">
+    <span>Forgot Password?</span>
+  </div>
+</ion-content>

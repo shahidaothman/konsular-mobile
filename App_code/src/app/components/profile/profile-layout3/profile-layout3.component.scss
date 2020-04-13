@@ -1,0 +1,95 @@
+  .main_div {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    .user_image {
+      margin-top: 50px !important;
+      height: 150px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      border-radius: 50%;
+      width: 150px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border: 7px solid #fff;
+      box-shadow: 0 5px 20px rgba(27, 20, 100, 0.3);
+      .username {
+        margin-top: 150px;
+        font-weight: bold;
+        color: white;
+      }
+    }
+    .user_cover {
+      // margin-top: 15px !important;
+      // height: 150px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border: 1px solid #fff;
+      box-shadow: 0 5px 20px rgba(27, 20, 100, 0.3);
+    }
+        .icon_div{
+            border-radius: 100%;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            top: 10%;
+            left: 62%;
+            transform: translate(-50%,-50%);
+        }
+        .img_icon{
+            height: 25px !important;
+            width: 25px !important;
+            margin-top: 10px;
+        }
+         .icon_div2{
+            border-radius: 100%;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            top: 2%;
+            left: 95%;
+            transform: translate(-50%,-50%);
+        }
+        .img_icon2{
+            height: 25px !important;
+            width: 25px !important;
+            margin-top: 10px;
+        }
+    .div_user_detail {
+      // margin-top: 40px;
+    }
+    .row {
+      border-bottom: 1px solid lightgray;
+    }
+    .input {
+      font-weight: bold !important;
+      font-size: 13px;
+      
+    }
+    .label {
+      color: black;
+    }
+    .select-text {
+      font-weight: bold;
+    }
+    .userInfo {
+        padding-right: 10px;
+        padding-left: 10px;
+        background-color: white;
+    }
+    .btn{
+      
+    }
+  }

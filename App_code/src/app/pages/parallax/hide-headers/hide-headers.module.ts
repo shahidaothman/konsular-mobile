@@ -1,0 +1,31 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+
+import { IonicModule } from '@ionic/angular';
+
+import { HideHeadersPage } from './hide-headers.page';
+import { DirectivesModule } from 'src/app/directives/directives.module';
+import { SharedModule } from 'src/app/shared.module';
+
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HideHeadersPage
+  }
+];
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    SharedModule,
+    RouterModule.forChild(routes),
+    DirectivesModule,
+  ],
+  declarations: [HideHeadersPage]
+})
+export class HideHeadersPageModule { }

@@ -1,0 +1,15 @@
+<ion-grid no-padding no-margin>
+  <ion-row no-padding no-margin>
+    <ion-col size="6" no-padding no-margin *ngFor="let user of users;let i= index">
+      <ion-card no-margin background-size id='main_img' [style.backgroundImage]="'url('+user.imgs+')'">
+        <div class="heartIcon" (click)="favorite(user,i)">
+          <ion-icon *ngIf="!user.fav" class="iconSize heart" name="heart" slot="end" role="img"></ion-icon>
+          <ion-icon *ngIf="user.fav" class="iconSize heartRed" name="heart" slot="end" role="img"></ion-icon>
+        </div>
+        <div gallery-title>
+          <p item-title text-wrap>{{user.name}}</p>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

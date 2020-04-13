@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" color="light">
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Profile Setting
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="full">
+      <ion-avatar slot="start">
+        <img src="assets/avatars/1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>RCAP DESIGNS</h2>
+        <p>Ionic Expert</p>
+      </ion-label>
+    </ion-item>
+    <ion-list-header>
+      <ion-label>General</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name='settings' slot="start"></ion-icon>
+      <ion-label>App Language</ion-label>
+      <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let language of languages" [value]="language">{{language}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label> Enable notifications </ion-label>
+      <ion-toggle></ion-toggle>
+      <ion-icon name='notifications' slot="start"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Currency
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name='card' slot="start"></ion-icon>
+      <ion-label>Payment Method</ion-label>
+      <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let method of paymentMethods" [value]="method">{{method}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='logo-usd' slot="start"></ion-icon>
+      <ion-label>Currency</ion-label>
+      <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Other
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name='power' slot="start"></ion-icon>
+      <ion-button slot="end" (click)="logOut()">Logout</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

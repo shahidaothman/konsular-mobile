@@ -1,0 +1,36 @@
+<ion-header hidenav-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="addNewCard()">
+      <ion-icon slot="md-add-circle" name="md-add"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      Payment With Stripe
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="div_content">
+    <div *ngIf="!cards?.length">
+      <p text-center>No Card Found Please Add Card</p>
+    </div>
+    <ion-radio-group>
+      <ion-item class="div_inner" no-lines *ngFor="let card of cards;let i = index">
+        <ion-thumbnail slot="end">
+          <img src="assets/images/visa.png" class="img_visa" />
+          <!-- <ion-label>{{card.brand}}</ion-label> -->
+        </ion-thumbnail>
+        <ion-radio checked="{{ i == 0 ? 'true' : 'false' }}" (ionSelect)="changeMethod(card.id)" [value]="card.id"
+          slot="start"></ion-radio>
+        <ion-label>XXXX{{card.last4}} <br> Expiry {{card.exp_month}} / {{card.exp_year}}</ion-label>
+      </ion-item>
+    </ion-radio-group>
+    <ion-button expand="block" *ngIf="cards?.length" class="btn_addcard" (click)="payment()">Pay $ {{price}}
+    </ion-button>
+
+  </div>
+</ion-content>

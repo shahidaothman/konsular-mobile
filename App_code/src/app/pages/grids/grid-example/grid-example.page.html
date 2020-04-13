@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Grid Example {{id}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-grid1 *ngIf="id ==1"></app-grid1>
+  <app-grid2 *ngIf="id ==2"></app-grid2>
+  <app-grid3 *ngIf="id ==3"></app-grid3>
+  <app-grid4 *ngIf="id ==4"></app-grid4>
+  <app-grid5 *ngIf="id ==5"></app-grid5>
+</ion-content>

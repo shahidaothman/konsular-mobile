@@ -1,0 +1,15 @@
+<div class="main_div">
+  <ion-list no-padding>
+    <ion-item mode="md" lines="none" no-padding *ngFor="let cat of categories;let i = index">
+      <div class="imagediv" [style.backgroundImage]="'url(' + cat.imgs + ')'">
+        <div class="heartIcon" (click)="favorite(cat,i)">
+          <ion-icon *ngIf="!cat.fav" class="iconSize heart" name="heart" slot="end" role="img"></ion-icon>
+          <ion-icon *ngIf="cat.fav" class="iconSize heartRed" name="heart" slot="end" role="img"></ion-icon>
+        </div>
+        <div class="inner">
+          <h1><b text-center>{{cat.name}}</b></h1>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</div>

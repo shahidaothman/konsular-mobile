@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Image Gallery
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label text-center>Resources</ion-label>
+    </ion-item>
+    <div class="box" id="g1" (click)="layout1()">
+      <p>Layout 1</p>
+    </div>
+    <div class="box" id="g2" (click)="layout2()">
+      <p>Layout 2</p>
+    </div>
+    <div class="box" id="g3" (click)="layout3()">
+      <p>Layout 3</p>
+    </div>
+    <div class="box" id="g4" (click)="layout4()">
+      <p>Layout 4</p>
+    </div>
+
+  </ion-list>
+
+</ion-content>

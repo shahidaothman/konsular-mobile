@@ -1,0 +1,21 @@
+
+.lists{
+    margin-top: 10px;
+    ion-item{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .main_lbl{
+        color: var(--ion-color-secondary);
+    }
+    .sub_list{
+        -webkit-transition: all 300ms;
+        transition: all 300ms;
+        overflow: hidden;
+        ion-item{
+            --background: var(--ion-color-dark);
+            color:white;
+            margin: 0px !important;
+        }
+    }
+}

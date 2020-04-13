@@ -1,0 +1,23 @@
+ion-card {
+    position: relative;
+    height: 150px;
+    width: 100% !important;
+    border-radius: unset;
+}
+
+#main_img {
+    background-size: cover;
+    left: 50%;
+    background-position: center;
+    transform: translateX(-50%);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
+}
+
+.username{
+   font-size: 9pt;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 95% !important;
+    color: #eee;
+}
+

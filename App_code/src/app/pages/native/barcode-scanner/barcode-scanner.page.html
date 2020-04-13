@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Barcode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label text-center>Resources</ion-label>
+    </ion-item>
+    <div class="box" id="g1" (click)="scan()">
+      <p>Scan</p>
+    </div>
+    <div class="box" id="g2" (click)="generate()">
+      <p>Generate</p>
+    </div>
+  </ion-list>
+
+
+</ion-content>

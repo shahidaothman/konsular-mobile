@@ -1,0 +1,688 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <div class="backButton">
+      <ion-buttons slot="start" color="light">
+        <ion-back-button defaultHref="home" color="light"></ion-back-button>
+      </ion-buttons>
+    </div>
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title>
+      Good Conduct
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <ion-label></ion-label>
+  </ion-item-divider>
+  <!-- <ion-item line="none">
+    Horizontal
+  </ion-item> -->
+  <div class="wrapper">
+    <fiv-stepper #stepper [mode]="'horizontal'" (fivClick)="stepper.open($event)">
+      <fiv-step [subtitle]="'Step 1'" [icon]="'md-person'">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Details</ion-card-subtitle>
+            <ion-card-title>Butiran Diri</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+
+              <!-- SELECT START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-select placeholder="Title" class="userinput">
+                    <ion-select-option value="f">Female</ion-select-option>
+                    <ion-select-option value="m">Male</ion-select-option>
+                  </ion-select>
+                </div>
+              </ion-item>
+              <br />
+              <!-- SELECT END -->
+              <!-- FIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+
+                  <ion-input type="text" [(ngModel)]="vc_street1" placeholder="Street 1" class="userinput"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+
+                  <ion-input type="text" [(ngModel)]="vc_street2" placeholder="Street 2" class="userinput"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+
+                  <ion-input type="text" [(ngModel)]="vc_street3" placeholder="Street 3" class="userinput"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- SELECT START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <mbsc-select [options]="desktopFilterSettings" class="userinput" placeholder="Please Select...">
+                  </mbsc-select>
+                </div>
+              </ion-item>
+
+              <!-- <ion-item lines="none">
+                <mbsc-form-group>
+                  <mbsc-form-group-title>Use it on mobile</mbsc-form-group-title>
+                  <div class="mbsc-row">
+                    <div class="mbsc-col-sm-12 mbsc-col-md-6">
+                      <mbsc-select [(ngModel)]="desktopFilter" [options]="desktopFilterSettings"
+                        placeholder="Please Select...">Filter</mbsc-select>
+                    </div>
+                    <div class="mbsc-col-sm-12 mbsc-col-md-6">
+                      <mbsc-select [(ngModel)]="desktopGroup" [options]="desktopGroupSettings"
+                        placeholder="Please Select...">Group select</mbsc-select>
+                    </div>
+                  </div>
+                </mbsc-form-group>
+              </ion-item> -->
+              <br />
+              <!-- SELECT END -->
+              <!-- SELECT START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-select placeholder="  Street" class="userinput">
+                    <ion-select-option value="f">Female</ion-select-option>
+                    <ion-select-option value="m">Male</ion-select-option>
+                  </ion-select>
+                </div>
+              </ion-item>
+              <br />
+              <!-- SELECT END -->
+              <!-- SELECT START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-select placeholder="District" class="userinput">
+                    <ion-select-option value="f">Female</ion-select-option>
+                    <ion-select-option value="m">Male</ion-select-option>
+                  </ion-select>
+                </div>
+              </ion-item>
+              <br />
+              <!-- SELECT END -->
+              <!-- FIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="ci_postcode" placeholder="Postcode" class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="ci_phone_nom" placeholder="Phone No." class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+
+                  <ion-input type="text" [(ngModel)]="ic_old" placeholder="Mycard No." class="userinput"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+
+                  <ion-input type="text" [(ngModel)]="ci_email" placeholder="E-mail" class="userinput"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+
+                  <ion-input type="text" [(ngModel)]="passport_no" placeholder="Passport No." class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+
+
+              <ion-item lines="none">
+                <ion-row class="item-inner">
+                  <ion-col size="11">
+                    <ion-datetime placeholder="Passport Issue Date" display-format="YYYY MMMM DD" [(ngModel)]="myDate"
+                      class="userinput">
+                    </ion-datetime>
+                  </ion-col>
+                  <ion-col size="1">
+                    <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <br>
+              <!-- DATE -->
+              <ion-item lines="none">
+                <ion-row class="item-inner">
+                  <ion-col size="11">
+                    <ion-datetime placeholder="Passport Expired Date" display-format="YYYY MMMM DD" [(ngModel)]="myDate"
+                      class="userinput">
+                    </ion-datetime>
+                  </ion-col>
+                  <ion-col size="1">
+                    <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <br>
+              <!-- END DATE -->
+              <ion-item lines="none">
+                <ion-row class="item-inner">
+                  <ion-col size="11">
+                    <ion-datetime placeholder="Birthday" display-format="YYYY MMMM DD" [(ngModel)]="myDate"
+                      class="userinput">
+                    </ion-datetime>
+                  </ion-col>
+                  <ion-col size="1">
+                    <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <br>
+
+            </ion-list>
+          </ion-card-content>
+          <ion-toolbar>
+            <ion-buttons slot="end" class="nextbtn">
+              <!-- <ion-button color="dark" (click)="stepper.closeAll()">
+                Close
+              </ion-button>
+              <ion-button color="dark" (click)="stepper.reset(0)">
+                reset
+              </ion-button>
+              <ion-button color="secondary" (click)="stepper.completeStep(0)">
+                Complete
+              </ion-button> -->
+              <ion-button color="primary" fill="solid" (click)="stepper.select(1)">
+                NEXT
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-card>
+      </fiv-step>
+      <!-- SIJIL KELAKUAN BAIK SECTION -->
+      <fiv-step [subtitle]="'Step 2'" [icon]="'md-document'">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Good Conduct</ion-card-subtitle>
+            <ion-card-title>Sijil Kelakuan Baik</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- <ion-button [disabled]="ex.isOpen" (click)="ex.open()">
+              Open
+            </ion-button>
+            <ion-button [disabled]="!ex.isOpen" (click)="ex.close()">
+              Close
+            </ion-button> -->
+
+            <fiv-expandable #ex>
+              <fiv-ripple [hover]="true" header (fivClick)="ex.toggle()">
+                <ion-item lines="none">
+
+                  <ion-row class="item-expand">
+                    <ion-col size="11" class="ion-expand">
+                      <ion-label color="primary" class="expand-label">Emploment Information</ion-label>
+                    </ion-col>
+                    <ion-col size="1">
+                      <fiv-expandable-indicator color="dark"></fiv-expandable-indicator>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+              </fiv-ripple>
+              <div content>
+                <ion-list>
+                  <br>
+                  <!-- FIELD START -->
+                  <ion-item lines="none">
+                    <div class="item-inner">
+
+                      <ion-input type="text" [(ngModel)]="ci_occupation" placeholder="Occupation" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+
+                      <ion-input type="text" [(ngModel)]="ci_employer" placeholder="Employer Name" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+
+                      <ion-input type="text" [(ngModel)]="vc_street1" placeholder="Street 1" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+
+                      <ion-input type="text" [(ngModel)]="vc_street2" placeholder="Street 2" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+
+                      <ion-input type="text" [(ngModel)]="vc_street3" placeholder="Street 3" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- SELECT START -->
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-select placeholder="Country" class="userinput">
+                        <ion-select-option value="f">Female</ion-select-option>
+                        <ion-select-option value="m">Male</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- SELECT END -->
+                  <!-- SELECT START -->
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-select placeholder="Street" class="userinput">
+                        <ion-select-option value="f">Female</ion-select-option>
+                        <ion-select-option value="m">Male</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- SELECT END -->
+                  <!-- SELECT START -->
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-select placeholder="District" class="userinput">
+                        <ion-select-option value="f">Female</ion-select-option>
+                        <ion-select-option value="m">Male</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- SELECT END -->
+                  <!-- FIELD START -->
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="ci_postcode" placeholder="Postcode" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+
+                </ion-list>
+              </div>
+            </fiv-expandable>
+            <!-- EXPENDABLE START -->
+            <!-- <ion-button [disabled]="he.isOpen" (click)="he.open()">
+              Open
+            </ion-button>
+            <ion-button [disabled]="!he.isOpen" (click)="he.close()">
+              Close
+            </ion-button> -->
+            <br>
+            <fiv-expandable #he>
+              <fiv-ripple [hover]="true" header (fivClick)="he.toggle()">
+                <ion-item lines="none">
+
+                  <ion-row class="item-expand">
+                    <ion-col size="11" class="ion-expand">
+                      <ion-label color="primary" class="expand-label">Higher Education Information</ion-label>
+                    </ion-col>
+                    <ion-col size="1">
+                      <fiv-expandable-indicator color="dark"></fiv-expandable-indicator>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+              </fiv-ripple>
+              <div content>
+                <ion-list>
+                  <br>
+                  <!-- FIELD START -->
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="hei_institution" placeholder="Institution Name"
+                        class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- SELECT START -->
+                  <ion-item lines="none">
+                    <ion-row class="item-inner">
+                      <ion-col size="11">
+                        <ion-datetime placeholder="Year Start Study" display-format="YYYY" [(ngModel)]="myDate"
+                          class="userinput">
+                        </ion-datetime>
+                      </ion-col>
+                      <ion-col size="1">
+                        <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+                  </ion-item>
+                  <br>
+                  <!-- SELECT END -->
+                  <!-- SELECT START -->
+
+                  <ion-item lines="none">
+                    <ion-row class="item-inner">
+                      <ion-col size="11">
+                        <ion-datetime placeholder="Year End Study" display-format="YYYY" [(ngModel)]="myDate"
+                          class="userinput">
+                        </ion-datetime>
+                      </ion-col>
+                      <ion-col size="1">
+                        <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+                  </ion-item>
+                  <br>
+                  <!-- SELECT END -->
+                  <!-- FIELD START -->
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="vc_street1" placeholder="Street 1" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="vc_street2" placeholder="Street 2" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="vc_street3" placeholder="Street 3" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- SELECT START -->
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-select placeholder="Country" class="userinput">
+                        <ion-select-option value="f">Female</ion-select-option>
+                        <ion-select-option value="m">Male</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- SELECT END -->
+                  <!-- SELECT START -->
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-select placeholder="Street" class="userinput">
+                        <ion-select-option value="f">Female</ion-select-option>
+                        <ion-select-option value="m">Male</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- SELECT END -->
+                  <!-- SELECT START -->
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-select placeholder="District" class="userinput">
+                        <ion-select-option value="f">Female</ion-select-option>
+                        <ion-select-option value="m">Male</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- SELECT END -->
+                  <!-- FIELD START -->
+
+
+
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="ci_postcode" placeholder="Postcode" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                </ion-list>
+              </div>
+            </fiv-expandable>
+          </ion-card-content>
+          <ion-toolbar>
+            <ion-buttons slot="end" class="nextbtn">
+              <ion-button color="primary" (click)="stepper.select(0)">
+                PREVIOUS
+              </ion-button>
+              <ion-button color="primary" fill="solid" (click)="stepper.select(2)">
+                NEXT
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-card>
+      </fiv-step>
+      <!-- TUJUAN SECTION -->
+      <fiv-step [subtitle]="'Step 3'" [icon]="'md-help'">
+        <ion-card class="card-horizontal">
+          <ion-card-header>
+            <ion-card-subtitle>Purpose</ion-card-subtitle>
+            <ion-card-title>Tujuan</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <!-- SELECT START -->
+
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-select placeholder="Purpose" class="userinput">
+                    <ion-select-option value="f">Female</ion-select-option>
+                    <ion-select-option value="m">Male</ion-select-option>
+                  </ion-select>
+                </div>
+              </ion-item>
+              <br />
+              <!-- SELECT END -->
+              <!-- FIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="app_purpose_other" placeholder="Other" class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- SELECT START -->
+
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-select placeholder="Country Need Certificate" class="userinput">
+                    <ion-select-option value="f">Female</ion-select-option>
+                    <ion-select-option value="m">Male</ion-select-option>
+                  </ion-select>
+                </div>
+              </ion-item>
+              <br />
+              <!-- SELECT END -->
+            </ion-list>
+
+          </ion-card-content>
+          <ion-toolbar>
+            <ion-buttons slot="end" class="nextbtn">
+              <ion-button color="primary" (click)="stepper.select(1)">
+                PREVIOUS
+              </ion-button>
+              <ion-button color="primary" fill="solid" (click)="stepper.select(3)">
+                NEXT
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-card>
+      </fiv-step>
+      <!-- GAMBAR SECTION -->
+      <fiv-step [subtitle]="'Step 4'" [icon]="'md-image'">
+        <ion-card class="card-horizontal">
+          <ion-card-header class="photo">
+            <ion-card-subtitle>Passport Size Photo</ion-card-subtitle>
+            <ion-card-title>Gambar Berukuran Pasport</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item *ngIf="cap_img">
+                <img [src]="cap_img" class="img_selected" />
+              </ion-item>
+
+
+
+            </ion-list>
+            <ion-button expand="block" fill="outline" color="primary" (click)="getImages()">Upload Passport Size Photo
+            </ion-button>
+            <ion-text color="medium">
+              <h5 class="photo">Photo upload requirement:<br>
+                1. Max Size : 200Kb<br>
+                2. Format : *.jng, *.jpeg or *.png
+              </h5>
+            </ion-text>
+          </ion-card-content>
+          <br>
+          <ion-card-header class="photo">
+            <ion-card-subtitle>Front Page Passport Photo</ion-card-subtitle>
+            <ion-card-title>Gambar Muka Depan Berukuran Pasport</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item *ngIf="cap_img1">
+                <img [src]="cap_img1" class="img_selected" />
+              </ion-item>
+
+            </ion-list>
+
+            <ion-button expand="block" fill="outline" color="primary" (click)="getImages1()">Upload Front Page
+              Passport Photo</ion-button>
+          </ion-card-content>
+          <ion-toolbar>
+
+            <ion-buttons slot="end" class="nextbtn">
+              <ion-button color="primary" (click)="stepper.select(2)">
+                PREVIOUS
+              </ion-button>
+              <ion-button expand="block" color="primary" fill="solid" (click)="presentActionSheet()">SUBMIT</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-card>
+      </fiv-step>
+    </fiv-stepper>
+  </div>
+</ion-content>

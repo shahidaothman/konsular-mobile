@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-slides [options]="slideOpts" #slidePrincipal class="mainSlide">
+    <ion-slide *ngFor="let i of images" [ngStyle]="{'background-image': 'url(' + i +')'}">
+    </ion-slide>
+  </ion-slides>
+  <div class="backButton">
+    <ion-buttons slot="start" color="light">
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
+    </ion-buttons>
+  </div>
+  <div class="login-container">
+    <ion-item lines="none">
+      <ion-input placeholder="Enter Your Email" [(ngModel)]="email" class="i" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input placeholder="Enter Your Password" [(ngModel)]="password" class="i" type="password"></ion-input>
+    </ion-item>
+
+    <div class="div_btn">
+      <ion-button expand="block" (click)="goHome()" class="btn_login">
+        Login
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
