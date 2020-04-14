@@ -51,6 +51,17 @@
               <ion-item lines="none">
                 <div class="item-inner">
 
+                  <ion-input type="text" [(ngModel)]="name" placeholder="Full name" class="userinput"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
+
+
+              <ion-item lines="none">
+                <div class="item-inner">
+
                   <ion-input type="text" [(ngModel)]="vc_street1" placeholder="Street 1" class="userinput"></ion-input>
                 </div>
               </ion-item>
@@ -81,7 +92,7 @@
               <!-- SELECT START -->
               <ion-item lines="none">
                 <div class="item-inner">
-                  <mbsc-select [options]="desktopFilterSettings" class="userinput" placeholder="Please Select...">
+                  <mbsc-select [options]="desktopFilterSettings" class="userinput" placeholder="Country">
                   </mbsc-select>
                 </div>
               </ion-item>
@@ -152,42 +163,44 @@
               <br />
               <!-- FIELD END -->
               <!-- FIELD START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="ci_phone_nom_office" placeholder="Phone No. (Home/Office)"
+                    class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
 
-
+              <!-- 
               <ion-item lines="none">
                 <div class="item-inner">
 
                   <ion-input type="text" [(ngModel)]="ic_old" placeholder="Mycard No." class="userinput"></ion-input>
                 </div>
               </ion-item>
-              <br />
+              <br /> -->
               <!-- FIELD END -->
               <!-- FIIELD START -->
-
-
-              <ion-item lines="none">
+              <!-- <ion-item lines="none">
                 <div class="item-inner">
-
                   <ion-input type="text" [(ngModel)]="ci_email" placeholder="E-mail" class="userinput"></ion-input>
                 </div>
               </ion-item>
-              <br />
+              <br /> -->
               <!-- FIELD END -->
               <!-- FIIELD START -->
-
-
-              <ion-item lines="none">
+              <!-- <ion-item lines="none">
                 <div class="item-inner">
-
                   <ion-input type="text" [(ngModel)]="passport_no" placeholder="Passport No." class="userinput">
                   </ion-input>
                 </div>
               </ion-item>
-              <br />
+              <br /> -->
               <!-- FIELD END -->
-
-
-              <ion-item lines="none">
+              <!-- <ion-item lines="none">
                 <ion-row class="item-inner">
                   <ion-col size="11">
                     <ion-datetime placeholder="Passport Issue Date" display-format="YYYY MMMM DD" [(ngModel)]="myDate"
@@ -199,9 +212,9 @@
                   </ion-col>
                 </ion-row>
               </ion-item>
-              <br>
+              <br> -->
               <!-- DATE -->
-              <ion-item lines="none">
+              <!-- <ion-item lines="none">
                 <ion-row class="item-inner">
                   <ion-col size="11">
                     <ion-datetime placeholder="Passport Expired Date" display-format="YYYY MMMM DD" [(ngModel)]="myDate"
@@ -213,9 +226,9 @@
                   </ion-col>
                 </ion-row>
               </ion-item>
-              <br>
+              <br> -->
               <!-- END DATE -->
-              <ion-item lines="none">
+              <!-- <ion-item lines="none">
                 <ion-row class="item-inner">
                   <ion-col size="11">
                     <ion-datetime placeholder="Birthday" display-format="YYYY MMMM DD" [(ngModel)]="myDate"
@@ -227,7 +240,7 @@
                   </ion-col>
                 </ion-row>
               </ion-item>
-              <br>
+              <br> -->
 
             </ion-list>
           </ion-card-content>
@@ -258,41 +271,37 @@
           </ion-card-header>
           <ion-card-content>
             <ion-list>
-              <!-- SELECT START -->
-
-              <ion-item lines="none">
-                <div class="item-inner">
-                  <ion-select placeholder="Purpose" class="userinput">
-                    <ion-select-option value="f">Female</ion-select-option>
-                    <ion-select-option value="m">Male</ion-select-option>
-                  </ion-select>
-                </div>
-              </ion-item>
-              <br />
-              <!-- SELECT END -->
               <!-- FIELD START -->
-
-
               <ion-item lines="none">
                 <div class="item-inner">
-                  <ion-input type="text" [(ngModel)]="app_purpose_other" placeholder="Other" class="userinput">
+                  <ion-input type="text" [(ngModel)]="app_purpose_other" placeholder="Ic No." class="userinput">
                   </ion-input>
                 </div>
               </ion-item>
               <br />
               <!-- FIELD END -->
-              <!-- SELECT START -->
-
+              <!-- FIELD START -->
               <ion-item lines="none">
                 <div class="item-inner">
-                  <ion-select placeholder="Country Need Certificate" class="userinput">
-                    <ion-select-option value="f">Female</ion-select-option>
-                    <ion-select-option value="m">Male</ion-select-option>
-                  </ion-select>
+                  <ion-input type="text" [(ngModel)]="app_purpose_other" placeholder="Passport No." class="userinput">
+                  </ion-input>
                 </div>
               </ion-item>
               <br />
-              <!-- SELECT END -->
+              <!-- FIELD END -->
+              <ion-item lines="none">
+                <ion-row class="item-inner">
+                  <ion-col size="11">
+                    <ion-datetime placeholder="Passport Expired Date" display-format="YYYY MMMM DD" [(ngModel)]="myDate"
+                      class="userinput">
+                    </ion-datetime>
+                  </ion-col>
+                  <ion-col size="1">
+                    <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <br>
             </ion-list>
 
           </ion-card-content>
@@ -322,143 +331,6 @@
             <ion-button [disabled]="!ex.isOpen" (click)="ex.close()">
               Close
             </ion-button> -->
-
-            <fiv-expandable #ex>
-              <fiv-ripple [hover]="true" header (fivClick)="ex.toggle()">
-                <ion-item lines="none">
-
-                  <ion-row class="item-expand">
-                    <ion-col size="11" class="ion-expand">
-                      <ion-label color="primary" class="expand-label">Emploment Information</ion-label>
-                    </ion-col>
-                    <ion-col size="1">
-                      <fiv-expandable-indicator color="dark"></fiv-expandable-indicator>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-item>
-              </fiv-ripple>
-              <div content>
-                <ion-list>
-                  <br>
-                  <!-- FIELD START -->
-                  <ion-item lines="none">
-                    <div class="item-inner">
-
-                      <ion-input type="text" [(ngModel)]="ci_occupation" placeholder="Occupation" class="userinput">
-                      </ion-input>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- FIELD END -->
-                  <!-- FIELD START -->
-
-
-
-
-                  <ion-item lines="none">
-                    <div class="item-inner">
-
-                      <ion-input type="text" [(ngModel)]="ci_employer" placeholder="Employer Name" class="userinput">
-                      </ion-input>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- FIELD END -->
-                  <!-- FIELD START -->
-
-
-
-                  <ion-item lines="none">
-                    <div class="item-inner">
-
-                      <ion-input type="text" [(ngModel)]="vc_street1" placeholder="Street 1" class="userinput">
-                      </ion-input>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- FIELD END -->
-                  <!-- FIELD START -->
-
-
-
-                  <ion-item lines="none">
-                    <div class="item-inner">
-
-                      <ion-input type="text" [(ngModel)]="vc_street2" placeholder="Street 2" class="userinput">
-                      </ion-input>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- FIELD END -->
-                  <!-- FIELD START -->
-
-
-
-                  <ion-item lines="none">
-                    <div class="item-inner">
-
-                      <ion-input type="text" [(ngModel)]="vc_street3" placeholder="Street 3" class="userinput">
-                      </ion-input>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- FIELD END -->
-                  <!-- SELECT START -->
-
-
-                  <ion-item lines="none">
-                    <div class="item-inner">
-                      <ion-select placeholder="Country" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- SELECT END -->
-                  <!-- SELECT START -->
-
-
-                  <ion-item lines="none">
-                    <div class="item-inner">
-                      <ion-select placeholder="Street" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- SELECT END -->
-                  <!-- SELECT START -->
-
-
-                  <ion-item lines="none">
-                    <div class="item-inner">
-                      <ion-select placeholder="District" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- SELECT END -->
-                  <!-- FIELD START -->
-
-
-
-                  <ion-item lines="none">
-                    <div class="item-inner">
-                      <ion-input type="text" [(ngModel)]="ci_postcode" placeholder="Postcode" class="userinput">
-                      </ion-input>
-                    </div>
-                  </ion-item>
-                  <br />
-                  <!-- FIELD END -->
-
-                </ion-list>
-              </div>
-            </fiv-expandable>
             <!-- EXPENDABLE START -->
             <!-- <ion-button [disabled]="he.isOpen" (click)="he.open()">
               Open
@@ -473,7 +345,7 @@
 
                   <ion-row class="item-expand">
                     <ion-col size="11" class="ion-expand">
-                      <ion-label color="primary" class="expand-label">Higher Education Information</ion-label>
+                      <ion-label color="primary" class="expand-label">Visited Country Information</ion-label>
                     </ion-col>
                     <ion-col size="1">
                       <fiv-expandable-indicator color="dark"></fiv-expandable-indicator>
@@ -485,54 +357,14 @@
               <div content>
                 <ion-list>
                   <br>
-                  <!-- FIELD START -->
-
-
 
                   <ion-item lines="none">
                     <div class="item-inner">
-                      <ion-input type="text" [(ngModel)]="hei_institution" placeholder="Institution Name"
-                        class="userinput">
-                      </ion-input>
+                      <mbsc-select [options]="desktopFilterSettings" class="userinput" placeholder="Country Visited">
+                      </mbsc-select>
                     </div>
                   </ion-item>
-                  <br />
-                  <!-- FIELD END -->
-                  <!-- SELECT START -->
-                  <ion-item lines="none">
-                    <ion-row class="item-inner">
-                      <ion-col size="11">
-                        <ion-datetime placeholder="Year Start Study" display-format="YYYY" [(ngModel)]="myDate"
-                          class="userinput">
-                        </ion-datetime>
-                      </ion-col>
-                      <ion-col size="1">
-                        <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
-                      </ion-col>
-                    </ion-row>
-                  </ion-item>
-                  <br>
-                  <!-- SELECT END -->
-                  <!-- SELECT START -->
-
-                  <ion-item lines="none">
-                    <ion-row class="item-inner">
-                      <ion-col size="11">
-                        <ion-datetime placeholder="Year End Study" display-format="YYYY" [(ngModel)]="myDate"
-                          class="userinput">
-                        </ion-datetime>
-                      </ion-col>
-                      <ion-col size="1">
-                        <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
-                      </ion-col>
-                    </ion-row>
-                  </ion-item>
-                  <br>
-                  <!-- SELECT END -->
                   <!-- FIELD START -->
-
-
-
                   <ion-item lines="none">
                     <div class="item-inner">
                       <ion-input type="text" [(ngModel)]="vc_street1" placeholder="Street 1" class="userinput">
@@ -578,8 +410,6 @@
                   <br />
                   <!-- SELECT END -->
                   <!-- SELECT START -->
-
-
                   <ion-item lines="none">
                     <div class="item-inner">
                       <ion-select placeholder="Street" class="userinput">
@@ -610,6 +440,77 @@
                   <ion-item lines="none">
                     <div class="item-inner">
                       <ion-input type="text" [(ngModel)]="ci_postcode" placeholder="Postcode" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="hei_institution" placeholder="Purpose Visited "
+                        class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- DATE START -->
+                  <ion-item lines="none">
+                    <ion-row class="item-inner">
+                      <ion-col size="11">
+                        <ion-datetime placeholder="Depature Date" display-format="YYYY" [(ngModel)]="myDate"
+                          class="userinput">
+                        </ion-datetime>
+                      </ion-col>
+                      <ion-col size="1">
+                        <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+                  </ion-item>
+                  <br>
+                  <!-- DATE END -->
+                  <!-- DATE START -->
+                  <ion-item lines="none">
+                    <ion-row class="item-inner">
+                      <ion-col size="11">
+                        <ion-datetime placeholder="Return Date (Expected)" display-format="YYYY" [(ngModel)]="myDate"
+                          class="userinput">
+                        </ion-datetime>
+                      </ion-col>
+                      <ion-col size="1">
+                        <ion-icon class="icon" color="medium" name="calendar"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+                  </ion-item>
+                  <br>
+                  <!-- DATE END -->
+                  <!-- SELECT START -->
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-select placeholder="Relationship with beneficiary" class="userinput">
+                        <ion-select-option value="f">Female</ion-select-option>
+                        <ion-select-option value="m">Male</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- SELECT END -->
+                  <!-- FIELD START -->
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="hei_institution" placeholder="Beneficiary Name "
+                        class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="hei_institution" placeholder="Beneficiary Telephone No. "
+                        class="userinput">
                       </ion-input>
                     </div>
                   </ion-item>
