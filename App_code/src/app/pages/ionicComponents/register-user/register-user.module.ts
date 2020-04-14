@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { RegisterUserPage } from './register-user.page';
+import { HTTP } from '@ionic-native/http/ngx';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
+  providers: [HTTP],
   declarations: [RegisterUserPage]
 })
 export class RegisterUserPageModule { }

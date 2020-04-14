@@ -9,7 +9,7 @@
 
   </div>
   <form #loginForm="ngForm" novalidate>
-    <ion-list lines="none">
+    <!-- <ion-list lines="none">
 
       <ion-item lines="none">
         <div class="item-inner">
@@ -75,12 +75,13 @@
         </div>
       </ion-item>
 
-    </ion-list>
+    </ion-list> -->
 
     <ion-row>
       <ion-col>
-        <ion-button (click)="onLogin(loginForm)" type="submit" class="btn" expand="block" (click)="home()">Register
+        <ion-button (click)="getRequest()" type="submit" class="btn">Register
         </ion-button>
+        {{requestObject}}
       </ion-col>
     </ion-row>
   </form>

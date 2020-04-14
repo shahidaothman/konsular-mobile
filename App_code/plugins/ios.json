@@ -43,10 +43,16 @@
     "cordova-plugin-googleplus": {
       "REVERSED_CLIENT_ID": "com.googleusercontent.apps.289791132996-pv70j5tmectgjjc25npilcll756ihk3u",
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
   "dependent_plugins": {
     "card.io.cordova.mobilesdk": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   }
