@@ -75,7 +75,7 @@ module.exports = "<ion-header hidenav-header>\n  <ion-toolbar color=\"secondary\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title {\n  font-weight: bold; }\n\n.descriptions {\n  font-size: 10px;\n  color: gray; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZWNobGFiL3Byb2plY3QvdW5pamF5YS9pb25pYy9BcHBfU291cmNlX0NvZGUvQXBwX2NvZGUvc3JjL2FwcC9wYWdlcy9wYXJhbGxheC9oaWRlLWhlYWRlcnMvaGlkZS1oZWFkZXJzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFpQixFQUFBOztBQUVyQjtFQUNJLGVBQWU7RUFDZixXQUFXLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9wYXJhbGxheC9oaWRlLWhlYWRlcnMvaGlkZS1oZWFkZXJzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50aXRsZXtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbn1cbi5kZXNjcmlwdGlvbnN7XG4gICAgZm9udC1zaXplOiAxMHB4O1xuICAgIGNvbG9yOiBncmF5O1xufVxuIl19 */"
+module.exports = ".title {\n  font-weight: bold; }\n\n.descriptions {\n  font-size: 10px;\n  color: gray; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZWNobGFiL3Byb2plY3QvdW5pamF5YS9pb25pYy9rb25zdWxhci1tb2JpbGUvQXBwX2NvZGUvc3JjL2FwcC9wYWdlcy9wYXJhbGxheC9oaWRlLWhlYWRlcnMvaGlkZS1oZWFkZXJzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFpQixFQUFBOztBQUVyQjtFQUNJLGVBQWU7RUFDZixXQUFXLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9wYXJhbGxheC9oaWRlLWhlYWRlcnMvaGlkZS1oZWFkZXJzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50aXRsZXtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbn1cbi5kZXNjcmlwdGlvbnN7XG4gICAgZm9udC1zaXplOiAxMHB4O1xuICAgIGNvbG9yOiBncmF5O1xufVxuIl19 */"
 
 /***/ }),
 

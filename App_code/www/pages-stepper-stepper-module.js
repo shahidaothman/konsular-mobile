@@ -72,7 +72,7 @@ module.exports = "<ion-header>\n  <ion-toolbar color=\"secondary\">\n    <ion-bu
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-item-divider {\n  border-bottom: 0; }\n\nion-item {\n  --border-style: none; }\n\n.card-horizontal {\n  min-width: 80%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZWNobGFiL3Byb2plY3QvdW5pamF5YS9pb25pYy9BcHBfU291cmNlX0NvZGUvQXBwX2NvZGUvc3JjL2FwcC9wYWdlcy9zdGVwcGVyL3N0ZXBwZXIucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0ksb0JBQWUsRUFBQTs7QUFHbkI7RUFDSSxjQUFjLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9zdGVwcGVyL3N0ZXBwZXIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWl0ZW0tZGl2aWRlciB7XG4gICAgYm9yZGVyLWJvdHRvbTogMDtcbn1cblxuaW9uLWl0ZW0ge1xuICAgIC0tYm9yZGVyLXN0eWxlOiBub25lO1xufVxuXG4uY2FyZC1ob3Jpem9udGFse1xuICAgIG1pbi13aWR0aDogODAlO1xufSJdfQ== */"
+module.exports = "ion-item-divider {\n  border-bottom: 0; }\n\nion-item {\n  --border-style: none; }\n\n.card-horizontal {\n  min-width: 80%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZWNobGFiL3Byb2plY3QvdW5pamF5YS9pb25pYy9rb25zdWxhci1tb2JpbGUvQXBwX2NvZGUvc3JjL2FwcC9wYWdlcy9zdGVwcGVyL3N0ZXBwZXIucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0ksb0JBQWUsRUFBQTs7QUFHbkI7RUFDSSxjQUFjLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9zdGVwcGVyL3N0ZXBwZXIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWl0ZW0tZGl2aWRlciB7XG4gICAgYm9yZGVyLWJvdHRvbTogMDtcbn1cblxuaW9uLWl0ZW0ge1xuICAgIC0tYm9yZGVyLXN0eWxlOiBub25lO1xufVxuXG4uY2FyZC1ob3Jpem9udGFse1xuICAgIG1pbi13aWR0aDogODAlO1xufSJdfQ== */"
 
 /***/ }),
 
