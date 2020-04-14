@@ -56,6 +56,17 @@
               </ion-item>
               <br />
               <!-- FIELD END -->
+              <!-- SELECT START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-select placeholder="Nationality" class="userinput">
+                    <ion-select-option value="f">Malaysia</ion-select-option>
+                    <ion-select-option value="m">Non-Malaysia</ion-select-option>
+                  </ion-select>
+                </div>
+              </ion-item>
+              <br />
+              <!-- SELECT END -->
               <!-- FIELD START -->
 
 
@@ -115,8 +126,6 @@
               <br />
               <!-- SELECT END -->
               <!-- SELECT START -->
-
-
               <ion-item lines="none">
                 <div class="item-inner">
                   <ion-select placeholder="  Street" class="userinput">
@@ -459,7 +468,7 @@
                   <ion-item lines="none">
                     <ion-row class="item-inner">
                       <ion-col size="11">
-                        <ion-datetime placeholder="Depature Date" display-format="YYYY" [(ngModel)]="myDate"
+                        <ion-datetime placeholder="Depature Date" display-format="YYYY MMMM DD" [(ngModel)]="myDate"
                           class="userinput">
                         </ion-datetime>
                       </ion-col>
@@ -474,8 +483,8 @@
                   <ion-item lines="none">
                     <ion-row class="item-inner">
                       <ion-col size="11">
-                        <ion-datetime placeholder="Return Date (Expected)" display-format="YYYY" [(ngModel)]="myDate"
-                          class="userinput">
+                        <ion-datetime placeholder="Return Date (Expected)" display-format="YYYY MMMM DD"
+                          [(ngModel)]="myDate" class="userinput">
                         </ion-datetime>
                       </ion-col>
                       <ion-col size="1">
