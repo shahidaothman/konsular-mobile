@@ -46,6 +46,36 @@
               <br />
               <!-- SELECT END -->
               <!-- FIELD START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="name" placeholder="Full name" class="userinput"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- SELECT START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-select placeholder="Nationality" class="userinput">
+                    <ion-select-option value="f">Malaysia</ion-select-option>
+                    <ion-select-option value="m">Non-Malaysia</ion-select-option>
+                  </ion-select>
+                </div>
+              </ion-item>
+              <br />
+              <!-- SELECT END -->
+              <!-- SELECT START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-select placeholder="Gender" class="userinput">
+                    <ion-select-option value="f">Malaysia</ion-select-option>
+                    <ion-select-option value="m">Non-Malaysia</ion-select-option>
+                  </ion-select>
+                </div>
+              </ion-item>
+              <br />
+              <!-- SELECT END -->
+              <!-- FIELD START -->
 
 
               <ion-item lines="none">
@@ -85,7 +115,6 @@
                   </mbsc-select>
                 </div>
               </ion-item>
-
               <!-- <ion-item lines="none">
                 <mbsc-form-group>
                   <mbsc-form-group-title>Use it on mobile</mbsc-form-group-title>
@@ -141,11 +170,19 @@
               <br />
               <!-- FIELD END -->
               <!-- FIELD START -->
-
-
               <ion-item lines="none">
                 <div class="item-inner">
                   <ion-input type="text" [(ngModel)]="ci_phone_nom" placeholder="Phone No." class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="ci_phone_nom" placeholder="Phone No.(Home/Office)"
+                    class="userinput">
                   </ion-input>
                 </div>
               </ion-item>
@@ -163,19 +200,23 @@
               <br />
               <!-- FIELD END -->
               <!-- FIIELD START -->
-
-
               <ion-item lines="none">
                 <div class="item-inner">
-
-                  <ion-input type="text" [(ngModel)]="ci_email" placeholder="E-mail" class="userinput"></ion-input>
+                  <ion-input type="text" [(ngModel)]="ic_place" placeholder="Place of Mycard Issue" class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="ci_email" placeholder="Email " class="userinput"></ion-input>
                 </div>
               </ion-item>
               <br />
               <!-- FIELD END -->
               <!-- FIIELD START -->
-
-
               <ion-item lines="none">
                 <div class="item-inner">
 
@@ -228,7 +269,24 @@
                 </ion-row>
               </ion-item>
               <br>
-
+              <!-- FIELD START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="father_name" placeholder="Father Name " class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
+              <!-- FIELD START -->
+              <ion-item lines="none">
+                <div class="item-inner">
+                  <ion-input type="text" [(ngModel)]="mother_name" placeholder="Mother name " class="userinput">
+                  </ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <!-- FIELD END -->
             </ion-list>
           </ion-card-content>
           <ion-toolbar>
@@ -287,6 +345,15 @@
                     <div class="item-inner">
 
                       <ion-input type="text" [(ngModel)]="ci_occupation" placeholder="Occupation" class="userinput">
+                      </ion-input>
+                    </div>
+                  </ion-item>
+                  <br />
+                  <!-- FIELD END -->
+                  <!-- FIELD START -->
+                  <ion-item lines="none">
+                    <div class="item-inner">
+                      <ion-input type="text" [(ngModel)]="ci_position" placeholder="Position" class="userinput">
                       </ion-input>
                     </div>
                   </ion-item>
@@ -616,6 +683,7 @@
               </ion-item>
               <br />
               <!-- SELECT END -->
+              <ion-button expand="block" fill="outline" color="primary" (click)="getDoc()">Upload Document</ion-button>
             </ion-list>
 
           </ion-card-content>
