@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <div class="backButton">
+      <ion-buttons slot="start" color="light">
+        <ion-back-button defaultHref="new-home" color="light"></ion-back-button>
+      </ion-buttons>
+    </div>
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title>
+      Setting
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="ion-text-center">
+    <h1>CHANGE PASSWORD</h1>
+
+  </div>
+  <br>
+  <form #loginForm="ngForm" novalidate>
+    <ion-list lines="none">
+
+      <ion-item lines="none">
+        <div class="item-inner">
+          <ion-input [(ngModel)]="login.password" class="userinput" placeholder="Old Password" name="password"
+            [type]="passwordType" #password="ngModel" required>
+          </ion-input>
+        </div>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <div class="item-inner">
+          <ion-input [(ngModel)]="login.password" class="userinput" placeholder=" New Password" name="password"
+            [type]="passwordType" #password="ngModel" required>
+          </ion-input>
+        </div>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <div class="item-inner">
+          <ion-input [(ngModel)]="login.password" class="userinput" placeholder="Confirm New Password" name="password"
+            [type]="passwordType" #password="ngModel" required>
+          </ion-input>
+        </div>
+      </ion-item>
+      <br>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="getRequest()" type="submit" class="btn">Save
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>

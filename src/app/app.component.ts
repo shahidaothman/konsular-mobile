@@ -32,7 +32,7 @@ export class AppComponent {
     },
     {
       title: 'Setting',
-      url: '/new-home',
+      url: '/setting',
       icon: 'cog'
     },
     {

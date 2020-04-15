@@ -122,6 +122,7 @@ const routes: Routes = [
   { path: 'my-location-map', loadChildren: './pages/ionicComponents/geolocation/my-location/my-location-map/my-location-map.module#MyLocationMapPageModule' },
   { path: 'near-consular-map', loadChildren: './pages/ionicComponents/geolocation/near-consular/near-consular-map/near-consular-map.module#NearConsularMapPageModule' },
   { path: 'profile-details', loadChildren: './pages/ionicComponents/profile-user/profile-details/profile-details.module#ProfileDetailsPageModule' },
+  { path: 'setting', loadChildren: './pages/ionicComponents/setting/setting.module#SettingPageModule' },
 
 
 
