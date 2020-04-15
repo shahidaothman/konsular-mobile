@@ -1,4 +1,3 @@
-
 import { Component, ViewChild, ViewEncapsulation, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,24 +9,25 @@ import { MenuController, IonSlides, NavController } from '@ionic/angular';
   styleUrls: ['./tutorials.page.scss'],
 })
 export class TutorialsPage implements OnInit {
-
   showSkip = true;
   slideOpts = {
-    zoom: false
+    zoom: false,
   };
   @ViewChild('slides') slides: IonSlides;
-  constructor(public menu: MenuController, private navCtrl: NavController,
-    public router: Router, ) { }
+  constructor(
+    public menu: MenuController,
+    private navCtrl: NavController,
+    public router: Router
+  ) {}
 
-  ngOnInit() {
-  }
-  onSlideChangeStart(event) {
-    event.target.isEnd().then(isEnd => {
+  ngOnInit() {}
+  onSlideChangeStart(event: any) {
+    event.target.isEnd().then((isEnd: boolean) => {
       this.showSkip = !isEnd;
     });
   }
   startApp() {
-    this.router.navigate(['/landing-page'])
+    this.router.navigate(['/landing-page']);
     // this.router.navigate(['/simple'])
   }
 }
