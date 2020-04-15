@@ -134,9 +134,7 @@
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.289791132996-pv70j5tmectgjjc25npilcll756ihk3u",
         "PLAY_SERVICES_VERSION": "11.8.0"
       },
-      "cordova-plugin-advanced-http": {
-        "OKHTTP_VERSION": "3.10.0"
-      }
+      "cordova-plugin-advanced-http": {}
     },
     "platforms": [
       "ios",

@@ -22,22 +22,22 @@ export class AppComponent {
     },
     {
       title: 'Profile',
-      url: '/home',
+      url: '/profile-details',
       icon: 'address-card'
     },
     {
       title: 'Malaysia Embassies Information',
-      url: '/home',
+      url: '/new-home',
       icon: 'archway'
     },
     {
       title: 'Setting',
-      url: '/home',
+      url: '/new-home',
       icon: 'cog'
     },
     {
       title: 'Log Out',
-      url: '/home',
+      url: '/new-home',
       icon: 'sign-out-alt'
     },
     // {

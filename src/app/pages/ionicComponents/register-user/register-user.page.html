@@ -6,35 +6,27 @@
   </div>
   <div class="ion-text-center">
     <h1>REGISTER</h1>
+
   </div>
   <form #loginForm="ngForm" novalidate>
     <ion-list lines="none">
+
       <ion-item lines="none">
         <div class="item-inner">
-          <ion-input
-            placeholder="First Name"
-            name="fname"
-            class="userinput"
-            required
-          >
+          <ion-input placeholder="First Name" name="fname" class="userinput" required>
           </ion-input>
         </div>
       </ion-item>
 
-      <br />
+      <br>
 
       <ion-item lines="none">
         <div class="item-inner">
-          <ion-input
-            placeholder="Last Name"
-            name="lname"
-            class="userinput"
-            required
-          >
+          <ion-input placeholder="Last Name" name="lname" class="userinput" required>
           </ion-input>
         </div>
       </ion-item>
-      <br />
+      <br>
       <ion-list-header>
         <ion-label>
           Indentification type :
@@ -44,73 +36,54 @@
         <div class="item-inner">
           <ion-label></ion-label>
           <ion-select placeholder="Select One" class="userinput">
-            <ion-select-option value="f">Female</ion-select-option>
-            <ion-select-option value="m">Male</ion-select-option>
+            <ion-select-option value="f">Mykad</ion-select-option>
+            <ion-select-option value="m">Passport</ion-select-option>
           </ion-select>
         </div>
       </ion-item>
-      <br />
+      <br>
       <ion-item lines="none">
         <div class="item-inner">
-          <ion-input
-            placeholder="MyKad/Passport No."
-            name="MyKad/Passport"
-            class="userinput"
-            required
-          >
+          <ion-input placeholder="MyKad/Passport No." name="MyKad/Passport" class="userinput" required>
           </ion-input>
         </div>
       </ion-item>
 
-      <br />
+      <br>
 
       <ion-item lines="none">
         <div class="item-inner">
-          <ion-input
-            class="userinput"
-            placeholder="Password"
-            name="password"
-            type="password"
-            required
-          >
+          <ion-input [(ngModel)]="login.password" class="userinput" placeholder="Password" name="password"
+            [type]="passwordType" #password="ngModel" required>
           </ion-input>
         </div>
       </ion-item>
-      <br />
+      <br>
       <ion-item lines="none">
         <div class="item-inner">
-          <ion-input
-            class="userinput"
-            placeholder="Confirm Password"
-            name="password"
-            type="password"
-          >
+          <ion-input [(ngModel)]="login.password" class="userinput" placeholder="Confirm Password" name="password"
+            [type]="passwordType" #password="ngModel" required>
           </ion-input>
         </div>
       </ion-item>
-      <br />
+      <br>
       <ion-item>
         <div class="item-inner">
-          <ion-input
-            class="userinput"
-            placeholder="Email"
-            name="email"
-            type="email"
-            spellcheck="false"
-            autocapitalize="off"
-          >
+          <ion-input [(ngModel)]="login.email" class="userinput" placeholder="Email" name="email" type="email"
+            #email="ngModel" spellcheck="false" autocapitalize="off" required>
           </ion-input>
         </div>
       </ion-item>
+
     </ion-list>
 
     <ion-row>
       <ion-col>
-        <ion-button (click)="getRequest()" type="submit" class="btn"
-          >Register
+        <ion-button (click)="getRequest()" type="submit" class="btn">Register
         </ion-button>
         {{requestObject}}
       </ion-col>
     </ion-row>
   </form>
+
 </ion-content>
