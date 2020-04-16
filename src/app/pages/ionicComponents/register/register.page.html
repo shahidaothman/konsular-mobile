@@ -112,7 +112,7 @@
               <!-- SELECT START -->
               <ion-item lines="none">
                 <div class="item-inner">
-                  <mbsc-select [options]="desktopFilterSettings" class="userinput" placeholder="Please Select...">
+                  <mbsc-select [options]="desktopFilterSettings" class="userinput" placeholder="Country">
                   </mbsc-select>
                 </div>
               </ion-item>
@@ -134,30 +134,42 @@
               <br />
               <!-- SELECT END -->
               <!-- SELECT START -->
-
-
               <ion-item lines="none">
                 <div class="item-inner">
-                  <ion-select placeholder="  State" class="userinput">
-                    <ion-select-option value="f">Female</ion-select-option>
-                    <ion-select-option value="m">Male</ion-select-option>
+                  <ion-select placeholder="State" class="userinput">
+                    <ion-select-option value="johor">Johor</ion-select-option>
+                    <ion-select-option value="kedah">Kedah</ion-select-option>
+                    <ion-select-option value="kelantan">Kelantan</ion-select-option>
+                    <ion-select-option value="melaka">Melaka</ion-select-option>
+                    <ion-select-option value="negeri_sembilan">Negeri Sembilan</ion-select-option>
+                    <ion-select-option value="pahang">Pahang</ion-select-option>
+                    <ion-select-option value="pineng">Pulau Pinang</ion-select-option>
+                    <ion-select-option value="perak">Perak</ion-select-option>
+                    <ion-select-option value="perlis">Perlis</ion-select-option>
+                    <ion-select-option value="sabah">Sabah</ion-select-option>
+                    <ion-select-option value="sarawak">Sarawak</ion-select-option>
+                    <ion-select-option value="selangor">Selangor</ion-select-option>
+                    <ion-select-option value="terengganu">Terengganu</ion-select-option>
+                    <ion-select-option value="kl">Wilayah Kuala Lumpur</ion-select-option>
+                    <ion-select-option value="labuan">Wilayah Labuah</ion-select-option>
+                    <ion-select-option value="putrajaya">Wilayah Putrajaya</ion-select-option>
                   </ion-select>
                 </div>
               </ion-item>
+
+
               <br />
+
               <!-- SELECT END -->
               <!-- SELECT START -->
-
-
               <ion-item lines="none">
                 <div class="item-inner">
-                  <ion-select placeholder="District" class="userinput">
-                    <ion-select-option value="f">Female</ion-select-option>
-                    <ion-select-option value="m">Male</ion-select-option>
-                  </ion-select>
+                  <ion-input type="text" [(ngModel)]="ci_district" placeholder="District" class="userinput">
+                  </ion-input>
                 </div>
               </ion-item>
               <br />
+
               <!-- SELECT END -->
               <!-- FIELD START -->
 
@@ -423,39 +435,30 @@
                   <!-- FIELD END -->
                   <!-- SELECT START -->
 
-
                   <ion-item lines="none">
                     <div class="item-inner">
-                      <ion-select placeholder="Country" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
+                      <mbsc-select [options]="desktopFilterSettings" class="userinput" placeholder="Country">
+                      </mbsc-select>
                     </div>
                   </ion-item>
                   <br />
                   <!-- SELECT END -->
                   <!-- SELECT START -->
-
-
                   <ion-item lines="none">
                     <div class="item-inner">
-                      <ion-select placeholder="State" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
+                      <ion-input type="text" placeholder="State" class="userinput">
+                      </ion-input>
                     </div>
                   </ion-item>
+
+
                   <br />
                   <!-- SELECT END -->
                   <!-- SELECT START -->
-
-
                   <ion-item lines="none">
                     <div class="item-inner">
-                      <ion-select placeholder="District" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
+                      <ion-input type="text" [(ngModel)]="ci_district" placeholder="District" class="userinput">
+                      </ion-input>
                     </div>
                   </ion-item>
                   <br />
@@ -583,39 +586,29 @@
                   <!-- FIELD END -->
                   <!-- SELECT START -->
 
-
                   <ion-item lines="none">
                     <div class="item-inner">
-                      <ion-select placeholder="Country" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
+                      <mbsc-select [options]="desktopFilterSettings" class="userinput" placeholder="Country">
+                      </mbsc-select>
                     </div>
                   </ion-item>
                   <br />
                   <!-- SELECT END -->
                   <!-- SELECT START -->
-
-
                   <ion-item lines="none">
                     <div class="item-inner">
-                      <ion-select placeholder="State" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
+                      <ion-input type="text" placeholder="State" class="userinput">
+                      </ion-input>
                     </div>
                   </ion-item>
+
                   <br />
                   <!-- SELECT END -->
                   <!-- SELECT START -->
-
-
                   <ion-item lines="none">
                     <div class="item-inner">
-                      <ion-select placeholder="District" class="userinput">
-                        <ion-select-option value="f">Female</ion-select-option>
-                        <ion-select-option value="m">Male</ion-select-option>
-                      </ion-select>
+                      <ion-input type="text" [(ngModel)]="ci_district" placeholder="District" class="userinput">
+                      </ion-input>
                     </div>
                   </ion-item>
                   <br />
@@ -688,10 +681,9 @@
 
               <ion-item lines="none">
                 <div class="item-inner">
-                  <ion-select placeholder="Country Need Certificate" class="userinput">
-                    <ion-select-option value="f">Female</ion-select-option>
-                    <ion-select-option value="m">Male</ion-select-option>
-                  </ion-select>
+                  <mbsc-select [options]="desktopFilterSettings" class="userinput"
+                    placeholder="Country Need Certificate">
+                  </mbsc-select>
                 </div>
               </ion-item>
               <br />
