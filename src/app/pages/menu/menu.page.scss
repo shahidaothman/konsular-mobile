@@ -1,0 +1,28 @@
+ion-card-title {
+  color: white;
+  display: flex;
+  transform: translateY(-35%);
+  height: 1rem;
+}
+
+ion-card {
+  width: 94%;
+  height: 25%;
+  border-radius: 20px;
+}
+
+.icon {
+  width: 5rem;
+}
+
+.logo {
+  height: 1.6rem;
+  margin-right: 4%;
+}
+
+.status {
+  padding: 0.2rem;
+  background: powderblue;
+  border-radius: 10rem;
+  color: blue;
+}

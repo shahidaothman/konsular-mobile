@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-start ion-padding-end ion-padding-bottom">
+  <ion-title color="primary">Registration</ion-title>
+  <form [formGroup]="form">
+    <div class="ion-margin-top ion-margin-bottom">
+      <ion-input
+        class="InputDesign"
+        type="text"
+        placeholder="First Name"
+        formControlName="firstName"
+      ></ion-input>
+      <ion-text
+        *ngIf="firstName.touched && firstName.errors"
+        class="padding-top d-block error"
+        color="danger"
+      >
+        Invalid first name.
+      </ion-text>
+    </div>
+    <div class="ion-margin-top ion-margin-bottom">
+      <ion-input
+        type="text"
+        placeholder="Last Name"
+        class="InputDesign"
+        formControlName="lastName"
+      >
+      </ion-input>
+      <ion-text
+        *ngIf="lastName.touched && lastName.errors"
+        class="padding-top d-block error"
+        color="danger"
+      >
+       Invalid last name.
+      </ion-text>
+    </div>
+    <div class="ion-margin-top ion-margin-bottom">
+      <label for="Identification" class="label">Identification Type : </label>
+      <ion-select
+        placeholder="Please choose"
+        id="identification"
+        formControlName="identificationType"
+      >
+        <ion-select-option value="mkad">MyKad</ion-select-option>
+        <ion-select-option value="passport">Passport No.</ion-select-option>
+      </ion-select>
+      <ion-text
+        *ngIf="identificationType.touched && identificationType.errors"
+        class="padding-top d-block error"
+        color="danger"
+      >
+        Please choose your identification type.
+      </ion-text>
+    </div>
+    <div class="ion-margin-top ion-margin-bottom">
+      <ion-input
+        class="InputDesign"
+        type="number"
+        placeholder="MyKad/ Passport No."
+        formControlName="passport"
+      >
+      </ion-input>
+      <ion-text
+        *ngIf="passport.touched && passport.errors"
+        class="padding-top d-block error"
+        color="danger"
+      >
+        Invalid mykad /passport no..
+      </ion-text>
+    </div>
+    <div class="ion-margin-top ion-margin-bottom">
+      <ion-input
+        class="InputDesign"
+        placeholder="Password"
+        formControlName="password"
+        [type]="passwordType"
+      >
+      </ion-input>
+      <!-- <img
+        src="assets/image/eye-hide.png"
+        *ngIf="passwordType == 'text'"
+        class="icon"
+        (click)="hideShowPassword()"
+      />
+      <img
+        src="assets/image/eye.png"
+        *ngIf="passwordType == 'password'"
+        class="eye"
+        (click)="hideShowPassword()"
+      /> -->
+      <ion-text
+        *ngIf="password.touched && password.errors"
+        class="padding-top d-block error"
+        color="danger"
+      >
+        Please enter password of minimum length 12.
+      </ion-text>
+    </div>
+    <div class="ion-margin-top ion-margin-bottom">
+      <ion-input
+        class="InputDesign"
+        type="password"
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+      >
+      </ion-input>
+      <ion-text
+        *ngIf="confirmPassword.touched && confirmPassword.errors || form?.errors?.misMatch"
+        class="padding-top d-block error"
+        color="danger"
+      >
+        Confirm password must be same as password.
+      </ion-text>
+    </div>
+    <div class="ion-margin-top ion-margin-bottom">
+      <ion-input
+        type="email"
+        placeholder="Email"
+        class="InputDesign"
+        formControlName="email"
+      >
+      </ion-input>
+      <ion-text
+        *ngIf="email.touched && email.errors"
+        class="padding-top d-block error"
+        color="danger"
+      >
+        Please enter your valid email.
+      </ion-text>
+    </div>
+    <ion-button
+      shape="round"
+      color="primary"
+      class="ion-margin-top ion-margin-bottom"
+      (click)="onRegister()"
+      [disabled]="isClicked"
+      expand="block"
+    >
+      <span class="ion-text-center" style="font-size: 16px;"> Register </span>
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,33 +1,72 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Logins
-    </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content padding>
-  <ion-list lines="none">
-    <ion-item>
-      <ion-label text-center>Resources</ion-label>
-    </ion-item>
-    <div class="box" id="g1" (click)="simple()">
-      <p>Simple</p>
-    </div>
-    <div class="box" id="g2" (click)="gradient()">
-      <p>Gradient Backgroud</p>
-    </div>
-    <div class="box" id="g3" (click)="video()">
-      <p>Video Backgroud</p>
-    </div>
-    <div class="box" id="g4" (click)="image()">
-      <p>Image Slider Backgroud</p>
-    </div>
-    <div class="box" id="g5" (click)="advanced()">
-      <p>Advanced</p>
-    </div>
-  </ion-list>
 
+<ion-content class="ion-padding-start ion-padding-end ion-padding-bottom">
+  <ion-title color="primary">Log In</ion-title>
+  <form [formGroup]="form">
+    <div class="ion-margin-top ion-margin-bottom">
+      <ion-input
+        class="InputDesign"
+        type="number"
+        placeholder="MyKad or Passport No."
+        formControlName="username"
+      >
+      </ion-input>
+      <ion-text
+        *ngIf="username.touched && username.errors"
+        class="padding-top d-block error"
+        color="danger"
+      >
+        Invalid mykad or passport no.
+      </ion-text>
+    </div>
+    <div class="ion-margin-top ion-margin-bottom">
+      <ion-input
+        class="InputDesign"
+        [type]="passwordType"
+        placeholder="Password"
+        formControlName="password"
+      >
+      </ion-input>
+      <!-- <img
+        src="assets/image/eye-hide.png"
+        *ngIf="passwordType == 'text'"
+        class="icon"
+        (click)="hideShowPassword()"
+      />
+      <img
+        src="assets/image/eye.png"
+        *ngIf="passwordType == 'password'"
+        class="eye"
+        (click)="hideShowPassword()"
+      /> -->
+      <ion-text
+        *ngIf="password.touched && password.errors"
+        class="padding-top d-block error"
+        color="danger"
+      >
+        Invalid password.
+      </ion-text>
+    </div>
+    <ion-button
+      shape="round"
+      color="primary"
+      class="ion-margin-bottom ion-margin-top"
+      expand="block"
+      [disabled]="isClicked"
+      (click)="onLogin()"
+    >
+      <span class="ion-text-center">Log In </span>
+    </ion-button>
+  </form>
+  <ion-label>
+    <a class="link d-block" routerLink="/forgot-password">
+      Forgot Password
+    </a>
+  </ion-label>
 </ion-content>

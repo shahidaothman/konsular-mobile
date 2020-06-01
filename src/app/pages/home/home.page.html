@@ -1,62 +1,16 @@
-<ion-header>
-  <ion-toolbar color="secondary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-card mode="ios">
-    <ion-item color="primary">
-      <ion-icon color="light" slot="start" name="information-circle"></ion-icon>
-      <ion-label>Status of Application</ion-label>
-    </ion-item>
-    <ion-card-content>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam accusamus quaerat id architecto neque,
-      quo qui consequuntur nesciunt. Voluptatibus atque repellendus iure velit earum, provident tenetur est autem
-      beatae nostrum.
-    </ion-card-content>
-  </ion-card>
-  <ion-card class="welcome-card" (click)="register()">
-    <ion-img class="header_img" src="assets/images/nodata.png"></ion-img>
-    <ion-card-header>
-      <ion-card-subtitle>Good conduct</ion-card-subtitle>
-      <ion-card-title>Permohonan Sijil Kelakuan Baik</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card class="welcome-card" (click)="simple()">
-    <ion-img class="header_img" src="assets/intro/4.png"></ion-img>
-    <ion-card-header>
-      <ion-card-subtitle>Registration Of Malaysia Abroad</ion-card-subtitle>
-      <ion-card-title>Pendaftaran Rakyat Malaysia Di Luar Negara</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <!-- <ion-list lines="none">
-    <ion-list-header>
-      <ion-label>Resources</ion-label>
-    </ion-list-header>
-
-    <ion-grid>
-      <ion-row>
-     
-        <ion-col size="6" *ngFor="let page of resources">
-          <div class="box" id="g8">
-            <p text-wrap>
-              <fa-icon [icon]="['fas', page.icon]" slot="start" style="color: #292a6d !important;"></fa-icon>
-              {{page.title}}
-            </p>
-          </div>
-          <ion-item>
-            <fa-icon [icon]="['fas', page.icon]" slot="start" style="color: #989aa2 !important;"></fa-icon>
-            <ion-label>{{page.title}}</ion-label>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-  </ion-list> -->
+  <div class="custombody">
+    <img src="assets/image/logo-white.png" />
+    <ion-fab left middle class="login-box0">
+      <button
+        ion-button
+        class="signup-btn"
+        routerLink="/register"
+        fragment="tab2"
+      >
+        Register
+      </button>
+      <button ion-button class="login" routerLink="/login">Log In</button>
+    </ion-fab>
+  </div>
 </ion-content>

@@ -1,0 +1,1146 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  *ngIf="listLoaded"
+  class="ion-padding-start ion-padding-end ion-padding-bottom"
+>
+  <ion-title color="primary">Good Conduct</ion-title>
+  <ion-segment
+    class="nav-tabs"
+    [value]="segmentValue"
+    (ionChange)="segmentChanged($event)"
+  >
+    <ion-segment-button class="nav-item" value="Personal">
+      <ion-label>Personal</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="nav-item" value="Employer">
+      <ion-label>Employer</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="nav-item" value="Purpose">
+      <ion-label>Purpose</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="nav-item" value="Photo">
+      <ion-label>Photo</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Personal -->
+  <section class="ion-margin-top" *ngIf="segmentValue === 'Personal'">
+    <form [formGroup]="personalForm">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="5" class="ion-padding-end">
+            <ion-select
+              class="select"
+              style="margin-top: 0;"
+              placeholder="Title"
+              formControlName="title"
+            >
+              <ion-select-option value="mr">Mr</ion-select-option>
+              <ion-select-option value="mrs">Mrs</ion-select-option>
+              <ion-select-option value="miss">Miss</ion-select-option>
+              <ion-select-option value="ms">Ms</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col size="7">
+            <ion-input
+              class="InputDesign"
+              style="margin: 0;"
+              type="text"
+              placeholder="Name"
+              formControlName="name"
+            >
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="title.invalid || name.invalid">
+          <ion-col size="12">
+            <ion-text
+              *ngIf="title.touched && title.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Title is required
+            </ion-text>
+          </ion-col>
+          <ion-col size="12">
+            <ion-text
+              *ngIf="name.touched && name.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Name
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              placeholder="Nationality"
+              style="margin-top: 3%;"
+              formControlName="nationality"
+              class="mb-0"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                value="{{country.name}}"
+              >
+                {{country.name}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="nationality.touched && nationality.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Nationality is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-select
+              placeholder="Gender"
+              style="margin-top: 3%;"
+              formControlName="gender"
+              class="mb-0"
+            >
+              <ion-select-option
+                *ngFor="let gender of genders"
+                [value]="gender.id"
+                >{{gender.value}}</ion-select-option
+              >
+            </ion-select>
+            <ion-text
+              *ngIf="gender.touched && gender.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Gender is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 1"
+              formControlName="street1"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="street1.touched && street1.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 1
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 2 (optional)"
+              formControlName="street2"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="street2.touched && street2.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 2
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 3 (optional)"
+              formControlName="street3"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="street3.touched && street3.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 3
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-input
+              class="InputDesign"
+              type="number"
+              placeholder="Postcode"
+              formControlName="postcode"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="postcode.touched && postcode.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Postcode
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              placeholder="Country"
+              style="margin-top: 3%;"
+              formControlName="country"
+              class="select"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                [value]="country.id"
+              >
+                {{country.name}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="country.touched && country.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Country is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-select
+              *ngIf="country.value == 131"
+              [compareWith]="compareFn.bind(this)"
+              placeholder="State"
+              style="margin-top: 3%;"
+              formControlName="state"
+              class="select"
+            >
+              <ion-select-option
+                *ngFor="let state of states"
+                [value]="state.name"
+              >
+                {{state.name}}
+              </ion-select-option>
+            </ion-select>
+
+            <ion-input
+              *ngIf="country.value != 131"
+              class="InputDesign"
+              type="text"
+              placeholder="State"
+              formControlName="state"
+            >
+            </ion-input
+            ><ion-text
+              *ngIf="state.touched && state.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid State
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-input
+              class="InputDesign"
+              name="phone"
+              type="text"
+              placeholder="Phone No. OFFICE/HOME (optional)"
+              formControlName="phoneOffice"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="phoneOffice.touched && phoneOffice.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Phone No. (Home/ Office)
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-input
+              class="InputDesign"
+              name="phone no."
+              type="text"
+              placeholder="Phone No."
+              formControlName="phoneNo"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="phoneNo.touched && phoneNo.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Phone No
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Identity Card No. (New)"
+              formControlName="identityCardNew"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="identityCardNew.touched && identityCardNew.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Identity Card No. NEW
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="number"
+              placeholder="Identity Card No. OLD (optional)"
+              formControlName="identityCardOld"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="identityCardOld.touched && identityCardOld.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Identity Card No. OLD
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Passport No."
+              formControlName="passportNo"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="passportNo.touched && passportNo.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Passport No.
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              placeholder="Date Passport Issued"
+              class="InputDesign"
+              formControlName="datePassportIssue"
+              [max]="currentDate"
+            >
+            </ion-datetime>
+            
+            <ion-text
+              *ngIf="datePassportIssue.touched && datePassportIssue.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Date Passport Issued is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              placeholder="Holder of Passport"
+              formControlName="passportHolder"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                value="{{country.name}}"
+              >
+                {{country.name}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="passportHolder.touched && passportHolder.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Holder of Passport is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              placeholder="Date Passport Expired"
+              class="InputDesign"
+              formControlName="datePassportExpired"
+              [max]="maxDate"
+            >
+            </ion-datetime>
+            
+            <ion-text
+              *ngIf="datePassportExpired.touched && datePassportExpired.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Passport Expired is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              placeholder="Date of Birth"
+              class="InputDesign"
+              formControlName="dob"
+              [max]="currentDate"
+            >
+            </ion-datetime>
+            
+            <ion-text
+              *ngIf="dob.touched && dob.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Date of Birth is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    <ion-button
+      (click)="onSubmitPersonal()"
+      shape="round"
+      class="ion-margin-top"
+      expand="block"
+    >
+      <span class="ion-text-center"> Next </span>
+    </ion-button>
+  </section>
+
+  <!-- Employer -->
+  <section class="ion-margin-top" *ngIf="segmentValue === EMPLOYER">
+    <!--      select employer type   -->
+    <form [formGroup]="employerForm">
+      <ion-list>
+        <ion-radio-group formControlName="empType">
+          <ion-list-header>
+            <ion-label>Employer Information</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Employment Information</ion-label>
+            <ion-radio slot="start" value="employment"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Eduction Information</ion-label>
+            <ion-radio slot="start" value="education"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </form>
+    
+    <!--    employer info   -->
+    <form
+      *ngIf="employerForm.controls.empType.value === 'employment'"
+      [formGroup]="empEmpForm"
+    >
+      <ion-grid class="ion-no-padding ion-margin-bottom">
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Occupation"
+              formControlName="occupation"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEmp('occupation').touched && empEmp('occupation').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Occupation
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Name of Employer"
+              formControlName="employerName"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEmp('employerName').touched && empEmp('employerName').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Name of Employer
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 1"
+              formControlName="street1"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEmp('street1').touched && empEmp('street1').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 1
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 2 (optional)"
+              formControlName="street2"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEmp('street2').touched && empEmp('street2').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 2
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 3 (optional)"
+              formControlName="street3"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEmp('street3').touched && empEmp('street3').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 3
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="number"
+              placeholder="Postcode"
+              formControlName="postcode"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEmp('postcode').touched && empEmp('postcode').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Postcode
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              placeholder="Country"
+              formControlName="country"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                [value]="country.id"
+              >
+                {{country.name}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="empEmp('country').touched && empEmp('country').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Country is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              *ngIf="empEmp('country').value == 131"
+              [compareWith]="compareFn.bind(this)"
+              placeholder="State"
+              style="margin-top: 3%;"
+              formControlName="state"
+              class="select"
+            >
+              <ion-select-option
+                *ngFor="let state of states"
+                [value]="state.name"
+              >
+                {{state.name}}
+              </ion-select-option>
+            </ion-select>
+
+            <ion-input
+              *ngIf="empEmp('country').value != 131"
+              class="InputDesign"
+              type="text"
+              placeholder="State"
+              formControlName="state"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEmp('state').touched && empEmp('state').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid State
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form
+      [formGroup]="empEduForm"
+      *ngIf="employerForm.controls.empType.value === 'education'"
+    >
+      <ion-grid class="ion-no-padding ion-margin-bottom">
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Name of Institution"
+              formControlName="instituteName"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEdu('instituteName').touched && empEdu('instituteName').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Name of Institution
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              placeholder="Year Start Study"
+              class="InputDesign"
+              formControlName="startStudy"
+              [max]="currentDate"
+            >
+            </ion-datetime>
+            
+            <ion-text
+              *ngIf="empEdu('startStudy').touched && empEdu('startStudy').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Year Start Study is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              placeholder="Year End Study"
+              class="InputDesign"
+              formControlName="endStudy"
+              [max]="maxDate"
+              [min]="currentDate"
+            >
+            </ion-datetime>
+            
+            <ion-text
+              *ngIf="empEdu('endStudy').touched && empEdu('endStudy').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Year End Study is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 1"
+              formControlName="street1"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEdu('street1').touched && empEdu('street1').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 1
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 2 (optional)"
+              formControlName="street2"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEdu('street2').touched && empEdu('street2').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 2
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Street 3 (optional)"
+              formControlName="street3"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEdu('street3').touched && empEdu('street3').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Street 3
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="number"
+              placeholder="Postcode"
+              formControlName="postcode"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEdu('postcode').touched && empEdu('postcode').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Postcode
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              placeholder="Country"
+              formControlName="country"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                [value]="country.id"
+              >
+                {{country.name}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="empEdu('country').touched && empEdu('country').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Country is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              *ngIf="empEdu('country').value == 131"
+              [compareWith]="compareFn.bind(this)"
+              placeholder="State"
+              style="margin-top: 3%;"
+              formControlName="state"
+              class="select"
+            >
+              <ion-select-option
+                *ngFor="let state of states"
+                [value]="state.name"
+              >
+                {{state.name}}
+              </ion-select-option>
+            </ion-select>
+
+            <ion-input
+              *ngIf="empEdu('country').value != 131"
+              class="InputDesign"
+              type="text"
+              placeholder="State"
+              formControlName="state"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="empEdu('state').touched && empEdu('state').errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid State
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <!--  button for empEnp  -->
+    <ion-button
+      shape="round"
+      (click)="onSubmitEmpEmp()"
+      class="ion-margin-top"
+      expand="block"
+      *ngIf="employerForm.controls.empType.value === 'employment'"
+    >
+      <span class="ion-text-center"> Next </span>
+    </ion-button>
+
+    <!--  button for rmpEdu  -->
+    <ion-button
+      shape="round"
+      (click)="onSubmitEmpEdu()"
+      class="ion-margin-top"
+      expand="block"
+      *ngIf="employerForm.controls.empType.value === 'education'"
+    >
+      <span class="ion-text-center"> Next </span>
+    </ion-button>
+
+    <ion-label>
+      <span (click)="activate(PERSONAL)" class="link d-block ion-margin-top">
+        Back
+      </span>
+    </ion-label>
+  </section>
+
+  <!-- Purpose -->
+  <section *ngIf="segmentValue === PURPOSE" class="ion-margin-top">
+    <form [formGroup]="purposeForm">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              placeholder="Purpose of Application"
+              formControlName="purposeApplication"
+            >
+              <ion-select-option
+                *ngFor="let purpose of purposes"
+                [value]="purpose.id"
+              >
+                {{purpose.value}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="purposeApplication.touched && purposeApplication.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Purpose of Application is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="purposeApplication.value === 6">
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Please State if Others"
+              formControlName="others"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="others.touched && others.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Please State if Others is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input class="InputDesign" readonly (click)="docs.click()">
+              <span class="photo" *ngIf="!document">Upload Document</span>
+              <span class="photo" *ngIf="document">{{document.name}}</span>
+              <img class="icon" src="assets/image/cloud.png" />
+            </ion-input>
+            <ion-text
+              *ngIf="isDocumentRequiredError"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Document is required
+            </ion-text>
+            <input
+              type="file"
+              #docs
+              (change)="onDocumentChange($event)"
+              hidden
+            />
+          </ion-col>
+        </ion-row>
+
+        <!--download button-->
+        <!--        <ion-row *ngIf="!!oldDoc">-->
+        <!--          <ion-col size="12" class="ion-no-padding">-->
+        <!--            <ion-button-->
+        <!--              [href]="oldDoc"-->
+        <!--              download="true"-->
+        <!--              shape="round"-->
+        <!--              expand="block"-->
+        <!--              class="mt"-->
+        <!--            >-->
+        <!--              <span class="ion-text-center">Download document </span>-->
+        <!--              <ion-icon-->
+        <!--                name="cloud-download-sharp"-->
+        <!--                class="ion-padding-start"-->
+        <!--                color="white"-->
+        <!--              >-->
+        <!--              </ion-icon>-->
+        <!--            </ion-button>-->
+        <!--          </ion-col>-->
+        <!--        </ion-row>-->
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              placeholder="Country Requiring Certificate"
+              formControlName="countryCertificate"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                [value]="country.id"
+              >
+                {{country.name}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="countryCertificate.touched && countryCertificate.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Country Requiring Certificate is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    <ion-button
+      shape="round"
+      (click)="onSubmitPurpose()"
+      class="ion-margin-top"
+      expand="block"
+    >
+      <span class="ion-text-center"> Next </span>
+    </ion-button>
+    <ion-label>
+      <span (click)="activate(EMPLOYER)" class="link d-block ion-margin-top">
+        Back
+      </span>
+    </ion-label>
+  </section>
+
+  <!-- Photo -->
+  <section *ngIf="segmentValue === PHOTO" class="ion-margin-top">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="ion-text-center" *ngIf="!!oldPassportFront" size="12">
+          <img
+            class="preview ion-margin"
+            [src]="oldPassportFront"
+            alt="old passport form"
+          />
+        </ion-col>
+
+        <ion-col size="12" class="ion-no-padding">
+          <ion-input
+            class="InputDesign"
+            readonly
+            (click)="passportFront.click()"
+          >
+            <span class="photo" *ngIf="!passportFrontPhoto">
+              Upload Passport Front Page
+            </span>
+            <span class="photo" *ngIf="passportFrontPhoto">
+              {{passportFrontPhoto?.name}}
+            </span>
+            <img class="icon" src="assets/image/cloud.png" />
+          </ion-input>
+          <ion-text
+            *ngIf="isPassportFrontRequiredError"
+            class="padding-top d-block error"
+            color="danger"
+          >
+            Passport Front Photo is required
+          </ion-text>
+          <input
+            type="file"
+            #passportFront
+            (change)="onPassportFrontPhotoChange($event)"
+            accept="image/jpeg, image/jpg, image/png"
+            hidden
+          />
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-text-center" *ngIf="!!oldPassportPhoto" size="12">
+          <img
+            class="ion-margin preview"
+            [src]="oldPassportPhoto"
+            alt="old passport form"
+          />
+        </ion-col>
+
+        <ion-col size="12" class="ion-no-padding">
+          <ion-input
+            class="InputDesign"
+            readonly
+            (click)="passportSize.click()"
+          >
+            <span class="photo" *ngIf="!passportSizePhoto">
+              Upload Passport Size Photo
+            </span>
+            <span class="photo" *ngIf="passportSizePhoto">
+              {{passportSizePhoto.name}}
+            </span>
+            <img class="icon" src="assets/image/cloud.png" />
+          </ion-input>
+          <ion-text
+            *ngIf="isPassportSizeRequiredError"
+            class="padding-top d-block error"
+            color="danger"
+          >
+            Passport size Photo is required
+          </ion-text>
+          <input
+            type="file"
+            #passportSize
+            (change)="onPassportSizePhotoChange($event)"
+            accept="image/jpeg, image/jpg, image/png"
+            hidden
+          />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="photo">
+      <h6 class="upload">Photo upload requirement :</h6>
+      <p class="upload">1. Maximum size : 200kb</p>
+      <p class="upload">2. Format: *.jpg, *.jpeg or *.png</p>
+    </div>
+
+    <ion-button
+      shape="round"
+      class="ion-margin-bottom ion-margin-top"
+      color="primary"
+      expand="block"
+      (click)="onSubmitPhoto(2)"
+    >
+      Submit
+    </ion-button>
+
+    <ion-button
+      shape="round"
+      class="ion-margin-bottom ion-margin-top"
+      color="primary"
+      expand="block"
+      (click)="onSubmitPhoto(1)"
+    >
+      Save as Draft
+    </ion-button>
+
+    <ion-label>
+      <span (click)="activate(PURPOSE)" class="link d-block ion-margin-top">
+        Back
+      </span>
+    </ion-label>
+  </section>
+</ion-content>

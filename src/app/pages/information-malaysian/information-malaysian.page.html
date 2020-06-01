@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="openRegistrationMalaysian()">
+        <ion-icon slot="end" size="large" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-start ion-padding-end ion-padding-bottom">
+  <ion-title color="primary">Malaysia Embassies Information</ion-title>
+
+  <ion-list *ngIf="items.length">
+    <ion-item *ngFor="let item of items">
+      <ion-label class="ion-text-wrap">
+        <h3 class="ion-text-capitalize">{{item.title}} {{item.name}}</h3>
+        <p>{{item.created_at | date : 'short'}}</p>
+      </ion-label>
+      <ion-icon
+        *ngIf="item.filing_status_id === 1"
+        color="success"
+        name="create-sharp"
+        (click)="editMalaysianRegistration(item.id)"
+      ></ion-icon>
+      <ion-icon
+        class="ion-padding-start"
+        color="danger"
+        name="trash"
+        (click)="deleteMalaysianRegistration(item.id)"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <section
+    *ngIf="!items.length && !isLoading"
+    class="ion-justify-content-center ion-align-items-center center"
+  >
+    <h3 class="ion-text-center">No Records Found.</h3>
+  </section>
+</ion-content>

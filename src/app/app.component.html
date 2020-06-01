@@ -1,361 +1,74 @@
 <ion-app>
-  <ion-split-pane>
-    <ion-menu>
-      <ion-header class="header_img">
-        <!-- <ion-header class="header_img" [ngStyle]="{'background-image': 'url(' + bg_img+ ')'}"> -->
-        <img src="assets/images/logo_white.png" alt="Ionic logo">
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar style="--background: #2a478b;">
+          <div class="ion-text-center mt">
+            <img
+              class="imageDesign"
+              src="./assets/image/logo-white.png"
+              alt=""
+            />
+          </div>
 
+          <div class="ion-text-start mt">
+            <!-- <img *ngIf="Image != ''" src="{{Image}}" class="Profile" alt="" /> -->
+            <ion-row>
+              <ion-col size="3" class="ion-text-end">
+                <img
+                  src="./assets/image/welcome-profile.png"
+                  class="Profile"
+                  alt=""
+                />
+              </ion-col>
+              <ion-col size="9">
+                <p class="para1">
+                  Welcome <span [innerText]="user?.name || 'User'"></span>!
+                </p>
+                <p class="para2">
+                  Last Log on {{ myDate | date: 'EEEE, d MMMM y' || 'User' }}
+                </p>
+              </ion-col>
+            </ion-row>
 
-        <ion-row class="item-inner">
-          <ion-col size="4">
-            <ion-icon class="iconheader" color="light" name="person"></ion-icon>
-          </ion-col>
-          <ion-col size="8">
-            <ion-text color="light">
-              <h5>Welcome Suzana!<br>
-              </h5>
-              <p>Last Log In<p>
-            </ion-text>
-          </ion-col>
-        </ion-row>
-
-
+            <div class="ion-text-center mt">
+              <!-- <ion-label style="color: white"> {{result?.name || 'NA'}}</ion-label> -->
+            </div>
+          </div>
+        </ion-toolbar>
       </ion-header>
-      <ion-content color="tertiary">
-        <ion-list color="secondary" class="menubackground">
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" color="tertiary">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="tertiary">
-              <fa-icon [icon]="['fas', p.icon]" slot="start" style="color: #013098 !important;">
-              </fa-icon>
-              <ion-label color="primary">
-                {{p.title}}
+      <ion-content style="--background: #dee9f0;">
+        <ion-list>
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngFor="let p of appPages; let i = index"
+          >
+            <ion-item
+              [routerDirection]="'root'"
+              lines="none"
+              [routerLink]="[p.url]"
+            >
+              <img [src]="p.src" [alt]="p.title" class="icon" />
+              &nbsp;&nbsp;
+              <ion-label class="label">
+                {{ p.title }}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <!-- logout  -->
+          <ion-menu-toggle auto-hide="false">
+            <ion-item (click)="doLogout()">
+              <img src="./assets/image/logout.png" alt="logout" class="icon" />
+              &nbsp;&nbsp;
+              <ion-label class="label">
+                Logout
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
     </ion-menu>
-    <!-- <ion-menu menuId="menu1" side="end" type="overlay">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Gmail</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="sidemenu1">
-        <ion-list lines="none">
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="active_menu">
-              <fa-icon [icon]="['fas', 'inbox']" slot="start" style="color: #63131b !important;">
-              </fa-icon>
-              <ion-label>Inbox</ion-label>
-              <ion-note slot="end" class="notes">+99</ion-note>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'book']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Unread</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'star']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Started</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'clock']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Snoozed</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'bookmark']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Important</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'paper-plane']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Sent</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'paper-plane']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Schedule</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'paper-plane']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Outbox</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'file']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Drafts</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'envelope']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>All mails</ion-label>
-              <ion-note slot="end" class="notes">22</ion-note>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'exclamation-circle']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Spam</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'trash']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Trash</ion-label>
-              <ion-note slot="end" class="notes">+99</ion-note>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item class="normal_menu">
-              <fa-icon [icon]="['fas', 'cog']" slot="start" style="color: #000000 !important;">
-              </fa-icon>
-              <ion-label>Setting</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-      <ion-footer>
-        Rcap Designs v1.0.1
-      </ion-footer>
-    </ion-menu>
-
-    <ion-menu menuId="menu2" side="end" type="overlay">
-      <ion-content class="sidemenu2">
-        <div class="div_logo">
-          <img src="assets/avatars/1.jpg" class="img_logo" />
-        </div>
-        <ion-label class="name">RCAP DESIGNS</ion-label>
-        <ion-list class="item_list" lines="none">
-          <ion-item class="home_menu">
-            <fa-icon [icon]="['fas', 'home']" slot="start" style="color:white !important;padding: 20px">
-            </fa-icon>
-            <ion-label>Home</ion-label>
-          </ion-item>
-          <ion-item class="edit_menu">
-            <fa-icon [icon]="['fas', 'edit']" slot="start" style="color:white !important;padding: 20px">
-            </fa-icon>
-            <ion-label>Profile</ion-label>
-          </ion-item>
-          <ion-item class="friends_menu">
-            <fa-icon [icon]="['fas', 'users']" slot="start" style="color:white !important;padding: 20px">
-            </fa-icon>
-            <ion-label>Community</ion-label>
-          </ion-item>
-          <ion-item class="list_menu">
-            <fa-icon [icon]="['fas', 'list-ol']" slot="start" style="color:white !important;padding: 20px">
-            </fa-icon>
-            <ion-label>Playlist</ion-label>
-          </ion-item>
-          <ion-item class="files_menu">
-            <fa-icon [icon]="['fas', 'bookmark']" slot="start" style="color:white !important;padding: 20px">
-            </fa-icon>
-            <ion-label>Bookmarks</ion-label>
-          </ion-item>
-          <ion-item class="setting_menu">
-            <fa-icon [icon]="['fas', 'cog']" slot="start" style="color:white !important;padding: 20px">
-            </fa-icon>
-            <ion-label>Settings</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-
-    <ion-menu menuId="menu3" side="end" type="overlay">
-      <ion-content class="sidemenu3">
-        <div class="div_logo">
-          <img src="assets/avatars/1.jpg" class="img_logo" />
-        </div>
-        <ion-label class="name">RCAP DESIGNS</ion-label>
-        <div class="item_menu">
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <div class="camera_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/1.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Camera</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="6">
-                <div class="gallery_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/2.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Gallery</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="6">
-                <div class="ss_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/3.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Community</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="6">
-                <div class="tools_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/4.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Settings</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="6">
-                <div class="share_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/5.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Refers</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="6">
-                <div class="send_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/6.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Chats</ion-label>
-                </div>
-              </ion-col>
-
-            </ion-row>
-          </ion-grid>
-        </div>
-      </ion-content>
-      <ion-footer>
-        <ion-button expand="block" fill="outline">
-          <ion-icon slot="start" name="power"></ion-icon>
-          Logout
-        </ion-button>
-      </ion-footer>
-    </ion-menu>
-
-    <ion-menu menuId="menu4" side="end" type="overlay" class="sidemenu4">
-      <ion-content>
-        <div class="item_menu">
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="4">
-                <div class="camera_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/1.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Camera</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="4">
-                <div class="gallery_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/2.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Gallery</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="4">
-                <div class="ss_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/3.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Community</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="4">
-                <div class="tools_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/4.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Settings</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="4">
-                <div class="share_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/5.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Refers</ion-label>
-                </div>
-              </ion-col>
-              <ion-col size="4">
-                <div class="send_box">
-                  <div class="div_menu">
-                    <img src="assets/sidemenu/6.png" class="menu_img" />
-                  </div>
-                  <ion-label class="menu_name">Chats</ion-label>
-                </div>
-              </ion-col>
-
-            </ion-row>
-          </ion-grid>
-        </div>
-      </ion-content>
-    </ion-menu>
-
-    <ion-menu menuId="menu5" side="end" type="overlay">
-      <ion-header>
-        <ion-toolbar color="dark">
-          <ion-title>Rcap Designs</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="sidemenu5">
-        <ion-list lines="none">
-          <ion-item>
-            <ion-thumbnail>
-              <img src="assets/avatars/1.jpg" class="icon_img" />
-            </ion-thumbnail>
-            <ion-label class="main_title">Rcap Designs</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-thumbnail>
-              <img src="assets/avatars/7.jpg" class="icon_img" />
-            </ion-thumbnail>
-            <ion-label class="main_title">Rcap Designs</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-thumbnail>
-              <img src="assets/avatars/3.jpg" class="icon_img" />
-            </ion-thumbnail>
-            <ion-label class="main_title">Rcap Designs</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-thumbnail>
-              <img src="assets/avatars/4.jpg" class="icon_img" />
-            </ion-thumbnail>
-            <ion-label class="main_title">Rcap Designs</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-thumbnail>
-              <img src="assets/avatars/8.jpg" class="icon_img" />
-            </ion-thumbnail>
-            <ion-label class="main_title">Rcap Designs</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu> -->
-    <ion-router-outlet main></ion-router-outlet>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

@@ -1,0 +1,82 @@
+ion-list-header {
+  font-size: 20px;
+  color: #2a478b;
+  font-weight: 700;
+}
+
+.select {
+  border: 1px solid #b7b2b2;
+  padding: 0 10%;
+  height: 40px;
+  background-color: #f1f1f1;
+  border-radius: 30px;
+  margin: 10px 0px;
+}
+
+ion-select {
+  border: 1px solid #b7b2b2;
+  padding: 0 4%;
+  height: 40px;
+  background-color: #f1f1f1;
+  border-radius: 30px;
+  margin: 8px 0px;
+}
+
+.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .nav-item {
+    flex: 0 0 33.33%;
+    text-transform: capitalize;
+  }
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+  font-size: 28px;
+  padding: 0 10px;
+  max-width: 15%;
+}
+
+.icon2 {
+  position: absolute;
+  right: 0;
+  font-size: 28px;
+  padding: 0 10px;
+  max-width: 15%;
+  z-index: 999;
+  top: 27%;
+}
+
+.profile {
+  position: relative;
+  width: 125px;
+  z-index: 1;
+  margin-bottom: -5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.size {
+  width: 250px;
+  text-align: center;
+}
+
+.InputDesign {
+  margin: 10px 0px;
+}
+
+ion-row {
+  padding: 2%;
+}
+
+ion-card-title {
+  color: #2a478b;
+}
+
+.right {
+  text-align: right;
+}

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-end ion-padding-start ion-padding-bottom">
+  <ion-card>
+    <ion-card-header color="primary">
+      <ion-card-title>
+        <img class="logo" src="assets/image/status-of-application.png" />
+        Status of Good Conduct
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="goodConduct">
+      <p class="ion-text-capitalize ion-text-center">{{goodConduct.name}}</p>
+      <small class="ion-text-center" style="display: block;"
+        >{{goodConduct.updated_at | date : 'shortDate'}}</small
+      >
+      <div class="status ion-text-center">
+        {{goodConduct.filing_status_id === 1 ? 'DRAFT' : 'SUBMIT'}}
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <h2 class="ion-text-center ion-margin">Choose your activity.</h2>
+
+  <div class="ion-text-center ion-margin-bottom">
+    <img src="assets/image/good-conduct.png" class="icon" />
+    <ion-button
+      expand="block"
+      fill="outline"
+      [routerLink]="['/tabs/menu/good-conduct']"
+      >Good Conduct
+    </ion-button>
+  </div>
+
+  <div class="ion-text-center ion-margin-bottom">
+    <img src="assets/image/registration.png" class="icon" />
+    <ion-button
+      shape="round"
+      expand="block"
+      fill="outline"
+      [routerLink]="['/tabs/menu/information-malaysian']"
+      >Registration of Malaysian Abroad
+    </ion-button>
+  </div>
+</ion-content>

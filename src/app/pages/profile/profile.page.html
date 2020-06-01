@@ -1,0 +1,490 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-start ion-padding-end ion-padding-bottom">
+  <ion-title color="primary">Profile</ion-title>
+  <ion-segment
+    class="nav-tabs"
+    [value]="segmentValue"
+    (ionChange)="segmentChanged($event)"
+    [scrollable]="true"
+  >
+    <ion-segment-button class="nav-item" value="Personal">
+      <ion-label>Personal</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="nav-item" value="Birth">
+      <ion-label>Birth Certificate</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="nav-item" value="Identity">
+      <ion-label>Identity</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="nav-item" value="Photo">
+      <ion-label>Photo</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Personal -->
+  <section class="ion-margin-top" *ngIf="segmentValue === PERSONAL">
+    <form [formGroup]="personalForm">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="5" class="ion-padding-end">
+            <ion-select
+              formControlName="title"
+              class="select"
+              placeholder="Title"
+            >
+              <ion-select-option value="mr">Mr</ion-select-option>
+              <ion-select-option value="mrs">Mrs</ion-select-option>
+              <ion-select-option value="miss">Miss</ion-select-option>
+              <ion-select-option value="ms">Ms</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col size="7">
+            <ion-input
+              class="InputDesign"
+              formControlName="name"
+              type="text"
+              placeholder="Full Name"
+            >
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="title.invalid || name.invalid">
+          <ion-col size="12">
+            <ion-text
+              *ngIf="title.touched && title.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Title is required
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text
+              *ngIf="name.touched && name.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid full name
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              disabled="true"
+              formControlName="gender"
+              placeholder="Gender"
+              class="mb-0"
+            >
+              <ion-select-option value="female">Female</ion-select-option>
+              <ion-select-option value="male">Male</ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="gender.touched && gender.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Gender is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              formControlName="nationality"
+              placeholder="Nationality"
+              style="margin-top: 3%;"
+              class="mb-0"
+              [compareWith]="compareFn.bind(this)"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                [value]="country.name"
+              >
+                {{country.name}}</ion-select-option
+              >
+            </ion-select>
+            <ion-text
+              *ngIf="nationality.touched && nationality.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Nationality is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign bm-0"
+              type="text"
+              formControlName="fatherName"
+              placeholder="Father's Name"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="fatherName.touched && fatherName.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid father name
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign mb-0"
+              type="text"
+              formControlName="motherName"
+              placeholder="Mother's Name"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="motherName.touched && motherName.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid mother name
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <ion-button
+      (click)="onSubmitPersonal()"
+      shape="round"
+      class="loginButton ion-margin-top"
+      expand="block"
+    >
+      <span class="ion-text-center"> Next </span>
+    </ion-button>
+  </section>
+
+  <!-- Birth -->
+  <section class="ion-margin-top" *ngIf="segmentValue === BIRTH">
+    <form [formGroup]="certificateForm">
+      <ion-grid class="ion-no-margin">
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign"
+              type="text"
+              placeholder="Birth Certificate No."
+              formControlName="birthCertificateNo"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="birthCertificateNo.touched && birthCertificateNo.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Birth Certificate No.
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              formControlName="placeOfIssue"
+              placeholder="Place of Issue"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                [value]="country.name"
+                >{{country.name}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="placeOfIssue.touched && placeOfIssue.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Place of Issue is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              formControlName="dateOfIssue"
+              placeholder="Date of Issue"
+              class="InputDesign"
+              [max]="currentDate"
+            ></ion-datetime>
+            <img class="icon2" src="assets/image/calender.png" />
+            <ion-text
+              *ngIf="dateOfIssue.touched && dateOfIssue.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Date of Issue is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <ion-button
+      (click)="onSubmitCertificate()"
+      shape="round"
+      class="loginButton ion-margin-top"
+      expand="block"
+    >
+      <span class="ion-text-center"> Next </span>
+    </ion-button>
+
+    <ion-label>
+      <span (click)="activate(PERSONAL)" class="link d-block ion-margin-top">
+        Back
+      </span>
+    </ion-label>
+  </section>
+
+  <!-- Identity -->
+  <section *ngIf="segmentValue === IDENTITY" class="ion-margin-top">
+    <form [formGroup]="identityForm">
+      <ion-grid class="ion-no-margin">
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign mb-0"
+              type="number"
+              placeholder="Identity Card No. (New)"
+              formControlName="identityCardNoNew"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="identityCardNoNew.touched && identityCardNoNew.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Identity Card No. (New)
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign mb-0"
+              type="number"
+              placeholder="Identity Card No. OLD (optional)"
+              formControlName="identityCardNoOld"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="identityCardNoOld.touched && identityCardNoOld.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Identity Card No. (Old)
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              formControlName="placeMyKadIssue"
+              placeholder="Place MyKad Issued (Malaysian Only)"
+              class="mb-0"
+            >
+              <ion-select-option *ngFor="let place of places" [value]="place">
+                {{place}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="placeMyKadIssue.touched && placeMyKadIssue.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Place MyKad Issued is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-input
+              class="InputDesign mb-0"
+              type="number"
+              placeholder="Passport No."
+              formControlName="passportNo"
+            >
+            </ion-input>
+            <ion-text
+              *ngIf="passportNo.touched && passportNo.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Invalid Passport No.
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              placeholder="Date of Issue"
+              class="InputDesign mb-0"
+              formControlName="passportIssueDate"
+            >
+            </ion-datetime>
+            <img class="icon2" src="assets/image/calender.png" />
+            <ion-text
+              *ngIf="passportIssueDate.touched && passportIssueDate.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Date of Issue is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-select
+              [compareWith]="compareFn.bind(this)"
+              formControlName="passportHolder"
+              placeholder="Holder of Passport"
+              class="mb-0"
+            >
+              <ion-select-option
+                *ngFor="let country of countries"
+                [value]="country.name"
+              >
+                {{country.name}}
+              </ion-select-option>
+            </ion-select>
+            <ion-text
+              *ngIf="passportHolder.touched && passportHolder.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Holder of Passport is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              [min]="passportIssueDate.value"
+              [max]="maxExpireDate"
+              formControlName="passportExpiredDate"
+              placeholder="Date Passport Expired"
+              class="InputDesign mb-0"
+            >
+            </ion-datetime>
+            <img class="icon2" src="assets/image/calender.png" />
+            <ion-text
+              *ngIf="passportExpiredDate.touched && passportExpiredDate.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Date Passport Expired is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <ion-datetime
+              [max]="todayDate"
+              formControlName="dob"
+              placeholder="Date of Birth"
+              class="InputDesign mb-0"
+            >
+            </ion-datetime>
+            <img class="icon2" src="assets/image/calender.png" />
+            <ion-text
+              *ngIf="dob.touched && dob.errors"
+              class="padding-top d-block error"
+              color="danger"
+            >
+              Date of Birth is required
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <ion-button
+      (click)="onSubmitIdentity()"
+      shape="round"
+      class="loginButton ion-margin-top"
+      expand="block"
+    >
+      <span class="ion-text-center"> Next </span>
+    </ion-button>
+
+    <ion-label>
+      <span (click)="activate(BIRTH)" class="link d-block ion-margin-top">
+        Back
+      </span>
+    </ion-label>
+  </section>
+
+  <!-- Photo -->
+  <section *ngIf="segmentValue === PHOTO" class="ion-margin-top">
+    <ion-grid class="ion-no-margin">
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-input
+            class="InputDesign mb-0"
+            maxlength="54"
+            readonly
+            (click)="img.click()"
+          >
+            <span class="photo" *ngIf="!file">Upload Passport Size Photo</span>
+            <span class="photo" *ngIf="file">{{file.name}}</span>
+            <img class="icon" src="assets/image/cloud.png" />
+          </ion-input>
+          <ion-text
+            *ngIf="isFileRequiredError"
+            class="padding-top d-block error"
+            color="danger"
+          >
+            Photo is required
+          </ion-text>
+          <input
+            type="file"
+            #img
+            (change)="onChange($event)"
+            accept="image/jpeg, image/jpg, image/png"
+            hidden
+          />
+        </ion-col>
+      </ion-row>
+      <div class="photo">
+        <h6 style="margin: auto;">Photo upload requirement :</h6>
+        <p style="margin: auto;">1. Maximum size : 200kb</p>
+        <p style="margin: auto;">2. Format: *.jpg, *.jpeg or *.png</p>
+      </div>
+    </ion-grid>
+
+    <ion-button
+      shape="round"
+      class="ion-margin-bottom ion-margin-top"
+      color="primary"
+      expand="block"
+      (click)="onSubmitPhoto()"
+    >
+      Submit
+    </ion-button>
+
+    <ion-label>
+      <span (click)="activate(IDENTITY)" class="link d-block ion-margin-top">
+        Back
+      </span>
+    </ion-label>
+  </section>
+</ion-content>

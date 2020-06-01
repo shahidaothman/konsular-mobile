@@ -1,0 +1,11 @@
+{
+  "status": true,
+  "data": [
+    { "id": 1, "value": "Further Study" },
+    { "id": 2, "value": "Work" },
+    { "id": 3, "value": "Accompany spouse/ Family" },
+    { "id": 4, "value": "Permanents Residents" },
+    { "id": 5, "value": "Application Citizen" },
+    { "id": 6, "value": "Other" }
+  ]
+}
