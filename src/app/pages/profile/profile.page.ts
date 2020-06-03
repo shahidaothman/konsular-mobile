@@ -40,7 +40,7 @@ export class ProfilePage implements OnInit, OnDestroy {
   public user: User;
   public subs = new Subscription();
   public todayDate: string;
-  public readonly maxExpireDate = moment().add('10', 'year').toISOString();
+  public readonly maxDate = moment().add('10', 'year').toISOString();
   public isFileRequiredError = false;
   public readonly currentDate = moment().utc().toISOString();
   constructor(
@@ -141,7 +141,7 @@ export class ProfilePage implements OnInit, OnDestroy {
       .updatePersonalDetails({
         title: form.title,
         name: form.name,
-        gender: form.gender,
+        gender: form.title === 'mr' ? 'male' : 'female',
         nationality: form.nationality,
         father_name: form.fatherName,
         mother_name: form.motherName,
@@ -153,7 +153,7 @@ export class ProfilePage implements OnInit, OnDestroy {
           this.user.user_profile_data = {
             ...this.user.user_profile_data,
             title: form.title,
-            gender: form.gender,
+            gender: form.title === 'mr' ? 'male' : 'female',
             nationality: form.nationality,
             father_name: form.fatherName,
             mother_name: form.motherName,
@@ -317,7 +317,10 @@ export class ProfilePage implements OnInit, OnDestroy {
           Validators.maxLength(25),
         ],
       ],
-      gender: [$ && $.gender ? $.gender : '', [Validators.required]],
+      gender: [
+        { value: $ && $.gender ? $.gender : '', disabled: true },
+        [Validators.required],
+      ],
       nationality: [
         $ && $.nationality ? $.nationality : '',
         [Validators.required],
@@ -346,7 +349,7 @@ export class ProfilePage implements OnInit, OnDestroy {
      * update gender based upon title
      */
     this.personalForm.controls.title.valueChanges.subscribe(($: string) => {
-      if ($.indexOf('mr') !== -1) {
+      if ($ === 'mr') {
         this.personalForm.controls.gender.patchValue('male');
       } else {
         this.personalForm.controls.gender.patchValue('female');
@@ -367,8 +370,8 @@ export class ProfilePage implements OnInit, OnDestroy {
         [
           Validators.required,
           patternValidator(ALPHA_NUM_REGX),
-          Validators.min(100),
-          Validators.max(999999999999999),
+          Validators.minLength(3),
+          Validators.maxLength(15),
         ],
       ],
       placeOfIssue: [
@@ -403,7 +406,7 @@ export class ProfilePage implements OnInit, OnDestroy {
           Validators.required,
           patternValidator(NUM_REGX),
           Validators.min(100),
-          Validators.max(999999999999999),
+          Validators.max(999999999999),
         ]),
       ],
       identityCardNoOld: [
@@ -411,7 +414,7 @@ export class ProfilePage implements OnInit, OnDestroy {
         Validators.compose([
           patternValidator(NUM_REGX),
           Validators.min(100),
-          Validators.max(999999999999999),
+          Validators.max(999999999999),
         ]),
       ],
       placeMyKadIssue: [
@@ -424,9 +427,9 @@ export class ProfilePage implements OnInit, OnDestroy {
           : '',
         Validators.compose([
           Validators.required,
-          patternValidator(NUM_REGX),
-          Validators.min(100),
-          Validators.max(999999999999999),
+          patternValidator(ALPHA_NUM_REGX),
+          Validators.minLength(3),
+          Validators.maxLength(12),
         ]),
       ],
       passportIssueDate: [

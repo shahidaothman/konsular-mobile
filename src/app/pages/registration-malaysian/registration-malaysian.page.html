@@ -41,7 +41,6 @@
             >
               <ion-select-option value="mr">mr</ion-select-option>
               <ion-select-option value="mrs">mrs</ion-select-option>
-              <ion-select-option value="miss">miss</ion-select-option>
               <ion-select-option value="ms">ms</ion-select-option>
             </ion-select>
           </ion-col>
@@ -299,7 +298,7 @@
           <ion-col size="12">
             <ion-input
               class="InputDesign"
-              type="number"
+              type="text"
               placeholder="Passport No."
               formControlName="passportNo"
             >
@@ -321,10 +320,10 @@
               display-timezone="utc"
               class="InputDesign"
               formControlName="datePassportExpired"
-              [max]="maxCalenderDate"
+              [max]="maxDate"
+              [min]="currentDate"
             >
             </ion-datetime>
-            <!--            <img class="icon2" src="assets/image/calender.png" />-->
             <ion-text
               *ngIf="ity('datePassportExpired').touched && ity('datePassportExpired').errors"
               class="padding-top d-block error"
@@ -642,10 +641,10 @@
               display-timezone="utc"
               class="InputDesign"
               formControlName="arrivalDate"
-              [max]="maxCalenderDate"
+              [max]="maxDate"
             >
             </ion-datetime>
-            <!--            <img class="icon2" src="assets/image/calender.png" />-->
+
             <ion-text
               *ngIf="vst('arrivalDate').touched && vst('arrivalDate').errors"
               class="padding-top d-block error"
@@ -663,10 +662,10 @@
               display-timezone="utc"
               class="InputDesign"
               formControlName="departureDate"
-              [max]="maxCalenderDate"
+              [max]="maxDate"
             >
             </ion-datetime>
-            <!--            <img class="icon2" src="assets/image/calender.png" />-->
+
             <ion-text
               *ngIf="vst('departureDate').touched && vst('departureDate').errors"
               class="padding-top d-block error"

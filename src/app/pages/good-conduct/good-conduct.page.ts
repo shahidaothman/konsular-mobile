@@ -13,7 +13,7 @@ import { Logger } from 'src/app/utils/app.util';
 import { GoodConductModel } from 'src/app/models/good-conduct-model';
 import { forkJoin, Subscription } from 'rxjs';
 import {
-  ADDR_REGX,
+  ADDR_REGX, ALPHA_NUM_REGX,
   GOOD_CONDUCT_TYPE,
   MOB_REGX,
   NUM_REGX,
@@ -83,7 +83,6 @@ export class GoodConductPage implements OnInit, OnDestroy {
   public ngOnInit() {
     this.subs.add(this.globalService.getUser.subscribe(($) => (this.user = $)));
     this.getConductList().finally();
-    this.getPurpose().finally();
     this.getInitData().finally();
   }
 
@@ -95,33 +94,29 @@ export class GoodConductPage implements OnInit, OnDestroy {
     this.employment = !this.employment;
   }
 
-  public toggleEducation() {
-    this.education = !this.education;
-  }
-
   public activate(tab: string) {
     this.segmentValue = tab;
   }
 
-  /**
-   * get purpose data for good conduct
-   * @method getPurpose
-   */
-  public async getPurpose() {
-    const loader = await this.uisService.setLoader();
-    await loader.present();
-    this.apis.getPurposes.subscribe(
-      async ($: ObjectAnyType) => {
-        this.purposes = $.data;
-        await loader.dismiss();
-      },
-      async ($: AppError) => {
-        Logger.error($);
-        await this.uisService.presentAlert($.error, 'Error');
-        await loader.dismiss();
-      }
-    );
-  }
+  // /**
+  //  * get purpose data for good conduct
+  //  * @method getPurpose
+  //  */
+  // public async getPurpose() {
+  //   const loader = await this.uisService.setLoader();
+  //   await loader.present();
+  //   this.apis.getPurposes.subscribe(
+  //     async ($: ObjectAnyType) => {
+  //       this.purposes = $.data;
+  //       await loader.dismiss();
+  //     },
+  //     async ($: AppError) => {
+  //       Logger.error($);
+  //       await this.uisService.presentAlert($.error, 'Error');
+  //       await loader.dismiss();
+  //     }
+  //   );
+  // }
 
   /**
    * get countries
@@ -130,10 +125,11 @@ export class GoodConductPage implements OnInit, OnDestroy {
   private async getInitData() {
     const loader = await this.uisService.setLoader();
     await loader.present();
-    forkJoin([this.apis.getCountries, this.apis.getStates]).subscribe(
+    forkJoin([this.apis.getCountries, this.apis.getStates, this.apis.getPurposes]).subscribe(
       async ($: ObjectAnyType) => {
         this.countries = $[0].success.country;
         this.states = $[1].success.state;
+        this.purposes = $[2].data;
         await loader.dismiss();
       },
       async ($: AppError) => {
@@ -207,7 +203,7 @@ export class GoodConductPage implements OnInit, OnDestroy {
       .goodConductPersonalDetails({
         title: form.title,
         name: form.name,
-        gender: form.gender,
+        gender: form.title === 'mr' ? 1 : 2,
         nationality: form.nationality,
         ci_street1: form.street1,
         ci_street2: form.street2,
@@ -687,7 +683,7 @@ export class GoodConductPage implements OnInit, OnDestroy {
           Validators.required,
           patternValidator(NUM_REGX),
           Validators.min(100),
-          Validators.max(999999999999999),
+          Validators.max(999999999999),
         ]),
       ],
       identityCardOld: [
@@ -695,7 +691,7 @@ export class GoodConductPage implements OnInit, OnDestroy {
         Validators.compose([
           patternValidator(NUM_REGX),
           Validators.min(100),
-          Validators.max(999999999999999),
+          Validators.max(999999999999),
         ]),
       ],
       datePassportIssue: [
@@ -710,9 +706,9 @@ export class GoodConductPage implements OnInit, OnDestroy {
         $.passportNo ? $.passportNo : '',
         Validators.compose([
           Validators.required,
-          patternValidator(NUM_REGX),
-          Validators.min(100),
-          Validators.max(999999999999999),
+          patternValidator(ALPHA_NUM_REGX),
+          Validators.minLength(3),
+          Validators.maxLength(12),
         ]),
       ],
       passportHolder: [
@@ -734,7 +730,7 @@ export class GoodConductPage implements OnInit, OnDestroy {
      * update gender based upon title
      */
     this.personalForm.controls.title.valueChanges.subscribe(($: string) => {
-      if ($.indexOf('mr') !== -1) {
+      if ($ === 'mr') {
         this.personalForm.controls.gender.patchValue(1);
       } else {
         this.personalForm.controls.gender.patchValue(2);
@@ -853,7 +849,7 @@ export class GoodConductPage implements OnInit, OnDestroy {
         $.streetOne ? $.streetOne : '',
         Validators.compose([
           Validators.required,
-          patternValidator(ADDR_REGX ),
+          patternValidator(ADDR_REGX),
           Validators.minLength(2),
           Validators.maxLength(25),
         ]),

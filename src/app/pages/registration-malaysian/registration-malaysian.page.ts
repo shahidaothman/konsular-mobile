@@ -20,12 +20,12 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { utc } from 'moment';
 import {
-  ADDR_REGX,
+  ADDR_REGX, ALPHA_NUM_REGX,
   GOOD_CONDUCT_TYPE,
   MOB_REGX,
   NUM_REGX,
-  STR_REGX,
-} from '../../services/constants/constants.service';
+  STR_REGX
+} from "../../services/constants/constants.service";
 import { patternValidator } from '../../validators/app.validator';
 import { forkJoin } from 'rxjs';
 
@@ -57,7 +57,8 @@ export class RegistrationMalaysianPage implements OnInit {
   public states: States[] = new Array();
   public isImgNotAvailable: boolean;
   public formId = 0;
-  public maxCalenderDate = utc().add(10, 'years').toISOString();
+  public maxDate = utc().add(10, 'years').toISOString();
+  public currentDate = utc().toISOString();
   constructor(
     private apis: ApisService,
     private fb: FormBuilder,
@@ -463,7 +464,7 @@ export class RegistrationMalaysianPage implements OnInit {
           Validators.required,
           patternValidator(NUM_REGX),
           Validators.min(100),
-          Validators.max(999999999999999),
+          Validators.max(999999999999),
         ]),
       ],
       identityCardOld: [
@@ -471,16 +472,16 @@ export class RegistrationMalaysianPage implements OnInit {
         Validators.compose([
           patternValidator(NUM_REGX),
           Validators.min(100),
-          Validators.max(999999999999999),
+          Validators.max(999999999999),
         ]),
       ],
       passportNo: [
         '',
         Validators.compose([
           Validators.required,
-          patternValidator(NUM_REGX),
-          Validators.min(100),
-          Validators.max(999999999999999),
+          patternValidator(ALPHA_NUM_REGX),
+          Validators.minLength(3),
+          Validators.maxLength(12),
         ]),
       ],
       datePassportExpired: ['', [Validators.required]],

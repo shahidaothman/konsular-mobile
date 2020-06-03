@@ -37,7 +37,7 @@
         class="padding-top d-block error"
         color="danger"
       >
-       Invalid last name.
+        Invalid last name.
       </ion-text>
     </div>
     <div class="ion-margin-top ion-margin-bottom">
@@ -61,7 +61,7 @@
     <div class="ion-margin-top ion-margin-bottom">
       <ion-input
         class="InputDesign"
-        type="number"
+        [type]="identificationType.value === 'mkad' ? 'number': 'text'"
         placeholder="MyKad/ Passport No."
         formControlName="passport"
       >
@@ -82,18 +82,6 @@
         [type]="passwordType"
       >
       </ion-input>
-      <!-- <img
-        src="assets/image/eye-hide.png"
-        *ngIf="passwordType == 'text'"
-        class="icon"
-        (click)="hideShowPassword()"
-      />
-      <img
-        src="assets/image/eye.png"
-        *ngIf="passwordType == 'password'"
-        class="eye"
-        (click)="hideShowPassword()"
-      /> -->
       <ion-text
         *ngIf="password.touched && password.errors"
         class="padding-top d-block error"

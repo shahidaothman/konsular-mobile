@@ -44,7 +44,6 @@
             >
               <ion-select-option value="mr">Mr</ion-select-option>
               <ion-select-option value="mrs">Mrs</ion-select-option>
-              <ion-select-option value="miss">Miss</ion-select-option>
               <ion-select-option value="ms">Ms</ion-select-option>
             </ion-select>
           </ion-col>
@@ -117,8 +116,9 @@
               <ion-select-option
                 *ngFor="let gender of genders"
                 [value]="gender.id"
-                >{{gender.value}}</ion-select-option
               >
+                {{gender.value}}
+              </ion-select-option>
             </ion-select>
             <ion-text
               *ngIf="gender.touched && gender.errors"
@@ -312,7 +312,7 @@
           <ion-col size="12" class="ion-no-padding">
             <ion-input
               class="InputDesign"
-              type="text"
+              type="number"
               placeholder="Identity Card No. (New)"
               formControlName="identityCardNew"
             >
@@ -374,7 +374,7 @@
               [max]="currentDate"
             >
             </ion-datetime>
-            
+
             <ion-text
               *ngIf="datePassportIssue.touched && datePassportIssue.errors"
               class="padding-top d-block error"
@@ -418,7 +418,7 @@
               [max]="maxDate"
             >
             </ion-datetime>
-            
+
             <ion-text
               *ngIf="datePassportExpired.touched && datePassportExpired.errors"
               class="padding-top d-block error"
@@ -438,7 +438,7 @@
               [max]="currentDate"
             >
             </ion-datetime>
-            
+
             <ion-text
               *ngIf="dob.touched && dob.errors"
               class="padding-top d-block error"
@@ -476,13 +476,13 @@
           </ion-item>
 
           <ion-item>
-            <ion-label>Eduction Information</ion-label>
+            <ion-label>Education Information</ion-label>
             <ion-radio slot="start" value="education"></ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-list>
     </form>
-    
+
     <!--    employer info   -->
     <form
       *ngIf="employerForm.controls.empType.value === 'employment'"
@@ -698,7 +698,7 @@
               [max]="currentDate"
             >
             </ion-datetime>
-            
+
             <ion-text
               *ngIf="empEdu('startStudy').touched && empEdu('startStudy').errors"
               class="padding-top d-block error"
@@ -716,10 +716,9 @@
               class="InputDesign"
               formControlName="endStudy"
               [max]="maxDate"
-              [min]="currentDate"
             >
             </ion-datetime>
-            
+
             <ion-text
               *ngIf="empEdu('endStudy').touched && empEdu('endStudy').errors"
               class="padding-top d-block error"

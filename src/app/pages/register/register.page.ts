@@ -11,7 +11,11 @@ import { Logger } from 'src/app/utils/app.util';
 import { ObjectAnyType } from 'src/app/interfaces/app.interface';
 import { MenuController } from '@ionic/angular';
 import { GlobalService } from 'src/app/services/global/global.service';
-import { NUM_REGX, STR_REGX } from '../../services/constants/constants.service';
+import {
+  ALPHA_NUM_REGX,
+  NUM_REGX,
+  STR_REGX,
+} from '../../services/constants/constants.service';
 
 class RegisterModel {
   public readonly firstName: string;
@@ -54,26 +58,24 @@ export class RegisterPage implements OnInit {
       {
         firstName: [
           '',
-          Validators.compose([patternValidator(STR_REGX),
-            Validators.minLength(2),
-            Validators.maxLength(25), Validators.required]),
-        ],
-        lastName: [
-          '',
-          Validators.compose([patternValidator(STR_REGX),
-            Validators.minLength(2),
-            Validators.maxLength(25), Validators.required]),
-        ],
-        identificationType: ['', Validators.compose([Validators.required])],
-        passport: [
-          '',
           Validators.compose([
-            patternValidator(NUM_REGX),
-            Validators.min(100),
-            Validators.max(999999999999999),
+            patternValidator(STR_REGX),
+            Validators.minLength(2),
+            Validators.maxLength(25),
             Validators.required,
           ]),
         ],
+        lastName: [
+          '',
+          Validators.compose([
+            patternValidator(STR_REGX),
+            Validators.minLength(2),
+            Validators.maxLength(25),
+            Validators.required,
+          ]),
+        ],
+        identificationType: ['', Validators.compose([Validators.required])],
+        passport: [{ value: '', disabled: true }, Validators.compose([])],
         password: [
           '',
           Validators.compose([
@@ -90,6 +92,39 @@ export class RegisterPage implements OnInit {
       },
       { validators: [confirmPasswordValidator] }
     );
+
+    // dynamically update passport/myKAd field
+    this.form.controls.identificationType.valueChanges.subscribe(($) => {
+      if ($ === 'mkad' || $ === 'passport') {
+        this.form.controls.passport.enable();
+      }
+      
+      if ($ === 'mkad') {
+        console.log($);
+        this.form.controls.passport.clearValidators();
+        this.form.controls.passport.setValidators(
+          Validators.compose([
+            patternValidator(NUM_REGX),
+            Validators.min(100),
+            Validators.max(999999999999),
+            Validators.required,
+          ])
+        );
+      }
+
+      if ($ === 'passport') {
+        this.form.controls.passport.clearValidators();
+        this.form.controls.passport.setValidators(
+          Validators.compose([
+            patternValidator(ALPHA_NUM_REGX),
+            Validators.minLength(3),
+            Validators.maxLength(12),
+            Validators.required,
+          ])
+        );
+      }
+      this.form.controls.passport.updateValueAndValidity();
+    });
   }
 
   public ionViewWillEnter() {
